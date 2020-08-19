@@ -1,0 +1,43 @@
+{
+  "name": "nuxt-route-meta",
+  "version": "1.0.0",
+  "description": "Adds page meta data to Nuxt routes.",
+  "keywords": [
+    "auth",
+    "meta",
+    "nuxt",
+    "page",
+    "route",
+    "router",
+    "vue"
+  ],
+  "repository": "dword-design/nuxt-route-meta",
+  "license": "MIT",
+  "author": "Sebastian Landwehr <info@dword-design.de>",
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "clean": "base clean",
+    "commit": "base commit",
+    "dev": "base dev",
+    "lint": "base lint",
+    "prepare": "base prepare",
+    "prepublishOnly": "base prepublishOnly",
+    "test": "base test"
+  },
+  "dependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/traverse": "^7.11.0",
+    "@dword-design/functions": "^1.1.3",
+    "fs-extra": "^9.0.1",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "devDependencies": {
+    "@dword-design/base": "^6.24.2"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
