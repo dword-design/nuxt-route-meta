@@ -1,6 +1,6 @@
 {
   "name": "nuxt-route-meta",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Adds page meta data to Nuxt routes.",
   "keywords": [
     "auth",
