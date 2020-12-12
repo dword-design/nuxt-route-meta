@@ -34,10 +34,12 @@
 <!-- /BADGES -->
 
 <!-- DESCRIPTION/ -->
-Adds page meta data to Nuxt routes.
+Adds page meta data to Nuxt route objects at build time.
 <!-- /DESCRIPTION -->
 
-It works by parsing the page files from routes and extracting the meta data from them. It is also possible to add additional properties.
+Nuxt pages have a `meta` property that allows to define metadata. These can be accessed in middlewares or inside the page component at runtime.
+
+What does not work however is to access the metadata at build time in the routes object itself. This is needed when postprocessing routes via [extendRoutes](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router) or the [@nuxtjs/sitemap](https://www.npmjs.com/package/@nuxtjs/sitemap) module. This module fills this gap by parsing the page files from routes and extracting the meta data from them. It is also possible to add additional properties.
 
 <!-- INSTALL/ -->
 ## Install
