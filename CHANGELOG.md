@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.2...v1.0.3) (2020-12-12)
+
+
+### Bug Fixes
+
+* further explain purpose of this module in readme ([89f25db](https://github.com/dword-design/nuxt-route-meta/commit/89f25dba10103c98bf8786321fc482b4783a5b7d))
+
 ## [1.0.2](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.1...v1.0.2) (2020-12-02)
 
 
