@@ -3,7 +3,7 @@
 <!-- /TITLE -->
 
 <!-- BADGES/ -->
-[![NPM version](https://img.shields.io/npm/v/nuxt-route-meta.svg)](https://npmjs.org/package/nuxt-route-meta)
+[![npm version](https://img.shields.io/npm/v/nuxt-route-meta.svg)](https://npmjs.org/package/nuxt-route-meta)
 ![Linux macOS Windows compatible](https://img.shields.io/badge/os-linux%20%7C%C2%A0macos%20%7C%C2%A0windows-blue)
 [![Build status](https://github.com/dword-design/nuxt-route-meta/workflows/build/badge.svg)](https://github.com/dword-design/nuxt-route-meta/actions)
 [![Coverage status](https://img.shields.io/coveralls/dword-design/nuxt-route-meta)](https://coveralls.io/github/dword-design/nuxt-route-meta)
@@ -45,7 +45,7 @@ What does not work however is to access the metadata at build time in the routes
 ## Install
 
 ```bash
-# NPM
+# npm
 $ npm install nuxt-route-meta
 
 # Yarn
