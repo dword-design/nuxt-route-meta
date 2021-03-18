@@ -21,12 +21,17 @@ export default function (moduleOptions) {
         ExportDefaultDeclaration: path => {
           const metaProperty =
             path.node.declaration.properties
-            |> find(property => property.key.name === 'meta')
+            |> find(
+              property =>
+                property.type === 'ObjectProperty' &&
+                property.key.name === 'meta'
+            )
           data =
             [
               ...(path.node.declaration.properties
                 |> filter(
                   property =>
+                    property.type === 'ObjectProperty' &&
                     property.key.name !== 'meta' &&
                     options.additionalProperties.includes(property.key.name)
                 )),

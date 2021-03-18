@@ -74,4 +74,19 @@ export default {
       `,
     },
   },
+  'spread operator': {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'pages/index.vue': endent`
+        <script>
+        export default {
+          ...{ foo: 'bar' },
+        }
+        </script>
+
+      `,
+    },
+  },
 } |> mapValues(runTest)
