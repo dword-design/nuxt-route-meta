@@ -1,3 +1,10 @@
+## [1.0.8](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.7...v1.0.8) (2021-03-18)
+
+
+### Bug Fixes
+
+* handle spread operator ([6c9ad76](https://github.com/dword-design/nuxt-route-meta/commit/6c9ad76dec3a95cdf9393f9329fdd61f747e0c61))
+
 ## [1.0.7](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.6...v1.0.7) (2021-03-17)
 
 
