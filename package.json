@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@babel/traverse": "^7.11.0",
-    "@dword-design/functions": "^1.1.3",
+    "@dword-design/functions": "^3.0.0",
     "fs-extra": "^9.0.1",
     "vue-template-compiler": "^2.6.11"
   },
