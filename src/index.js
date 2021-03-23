@@ -1,6 +1,12 @@
 import * as babel from '@babel/core'
 import traverse from '@babel/traverse'
-import { filter, find, forIn, keyBy, mapValues } from '@dword-design/functions'
+import {
+  filter,
+  find,
+  forEach,
+  keyBy,
+  mapValues,
+} from '@dword-design/functions'
 import { readFileSync } from 'fs-extra'
 
 export default function (moduleOptions) {
@@ -46,6 +52,6 @@ export default function (moduleOptions) {
     return data
   }
   this.extendRoutes(routes =>
-    forIn(route => (route.meta = route.component |> extractMeta))(routes)
+    forEach(routes, route => (route.meta = route.component |> extractMeta))
   )
 }
