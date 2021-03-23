@@ -1,3 +1,10 @@
+## [1.0.10](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.9...v1.0.10) (2021-03-23)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v3 ([#15](https://github.com/dword-design/nuxt-route-meta/issues/15)) ([cbda3cb](https://github.com/dword-design/nuxt-route-meta/commit/cbda3cbbd595dd340ad19c8db39ed7b26ef72755))
+
 ## [1.0.9](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.8...v1.0.9) (2021-03-22)
 
 
