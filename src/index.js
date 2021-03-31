@@ -15,8 +15,10 @@ export default function (moduleOptions) {
     ...this.options.routeMeta,
     ...moduleOptions,
   }
+
   const extractMeta = filename => {
     const vueTemplateCompiler = require('vue-template-compiler')
+
     const Component = vueTemplateCompiler.parseComponent(
       readFileSync(filename, 'utf8')
     )
@@ -49,6 +51,7 @@ export default function (moduleOptions) {
         },
       })
     }
+
     return data
   }
   this.extendRoutes(routes =>
