@@ -100,7 +100,7 @@ export default {
 <!-- LICENSE/ -->
 ## Contribute
 
-Are you missing something or want to contribute? Feel free to file an [issue](https://github.com/dword-design/nuxt-route-meta/issues) or [pull request](https://github.com/dword-design/nuxt-route-meta/pulls)! ⚙️
+Are you missing something or want to contribute? Feel free to file an [issue](https://github.com/dword-design/nuxt-route-meta/issues) or a [pull request](https://github.com/dword-design/nuxt-route-meta/pulls)! ⚙️
 
 ## Support
 
