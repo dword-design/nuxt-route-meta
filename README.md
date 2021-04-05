@@ -49,9 +49,9 @@
 Adds page meta data to Nuxt route objects at build time.
 <!-- /DESCRIPTION -->
 
-Nuxt pages have a `meta` property that allows to define metadata. These can be accessed in middlewares via `route.meta` at runtime.
+Nuxt pages have a `meta` property that allows to define meta data. These can be accessed in middlewares via `route.meta` at runtime. What does not work however is to access the meta data at build time in the routes object itself. This is needed when postprocessing routes via [extendRoutes](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router) or the [@nuxtjs/sitemap](https://www.npmjs.com/package/@nuxtjs/sitemap) module. This module fills this gap by parsing the page files, extracting the meta data, and writing them to the `meta` field of each route corresponding to the page.
 
-What does not work however is to access the metadata at build time in the routes object itself. This is needed when postprocessing routes via [extendRoutes](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router) or the [@nuxtjs/sitemap](https://www.npmjs.com/package/@nuxtjs/sitemap) module. This module fills this gap by parsing the page files from routes and extracting the meta data from them. It is also possible to add additional properties.
+ℹ️ Note that this module can only extract static data from the pages at build time. It will not work with dynamic data depending on `this`. In case you have an idea how to improve that, feel free to open up an issue or pull request.
 
 <!-- INSTALL/ -->
 ## Install
@@ -94,7 +94,7 @@ export default {
 }
 ```
 
-That's it! Now you can access the metadata in `route.meta` from anywhere as you know it from [vue-router](https://www.npmjs.com/package/vue-router). The module takes all properties that all properties that are not functions, and the meta property itself is merged into the result. So `route.meta` from the example above is `{ auth: true, theme: 'water' }`.
+That's it! Now you can access the meta data in `route.meta` from anywhere as you know it from [vue-router](https://www.npmjs.com/package/vue-router). The module takes all properties that all properties that are not functions, and the meta property itself is merged into the result. So `route.meta` from the example above is `{ auth: true, theme: 'water' }`.
 
 Here is an example to use it inside `this.extendRoutes` in a module:
 
