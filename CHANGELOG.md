@@ -1,3 +1,10 @@
+## [1.0.11](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.10...v1.0.11) (2021-04-05)
+
+
+### Bug Fixes
+
+* add array and nested object support. also removed additionalProperties config ([#21](https://github.com/dword-design/nuxt-route-meta/issues/21)) ([ff79e8f](https://github.com/dword-design/nuxt-route-meta/commit/ff79e8fd3dd1f7706e59d519abe1011ec67e27bb))
+
 ## [1.0.10](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.9...v1.0.10) (2021-03-23)
 
 
