@@ -103,7 +103,7 @@ export default function () {
   this.extendRoutes(routes =>
     routes.forEach(route => {
       if (route.meta.auth) {
-        // do something for auth routes
+        // do something with auth routes
       }
     })
   )
