@@ -139,6 +139,33 @@ export default {
       `,
     },
   },
+  'property decorator': {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <script>
+        import { Component, Vue } from '${packageName`nuxt-property-decorator`}';
+
+        @Component({
+          components: {},
+        })
+        export class Foo extends Vue {
+          foo = 'bar'
+        }
+        </script>
+
+      `,
+    },
+  },
   'spread operator': {
     config: {
       modules: ['~/../src'],
