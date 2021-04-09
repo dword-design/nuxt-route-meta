@@ -1,3 +1,11 @@
+## [1.0.13](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.12...v1.0.13) (2021-04-09)
+
+
+### Bug Fixes
+
+* update readme ([4163f05](https://github.com/dword-design/nuxt-route-meta/commit/4163f05d8f7c2159a683817b9ce8b3fc2384171d))
+* use nuxt babel config ([#23](https://github.com/dword-design/nuxt-route-meta/issues/23)) ([ca3bf0a](https://github.com/dword-design/nuxt-route-meta/commit/ca3bf0a4770c1012f9875ec22f4b87e741382221))
+
 ## [1.0.12](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.11...v1.0.12) (2021-04-05)
 
 
