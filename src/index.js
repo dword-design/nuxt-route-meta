@@ -1,6 +1,6 @@
 import * as babel from '@babel/core'
 import traverse from '@babel/traverse'
-import { forEach, omit } from '@dword-design/functions'
+import { forEach, omit, pick } from '@dword-design/functions'
 import astToLiteral from 'ast-to-literal'
 import { readFileSync } from 'fs-extra'
 
@@ -13,7 +13,14 @@ export default function () {
     )
     let data = {}
     if (Component.script?.content) {
-      const ast = babel.parseSync(Component.script.content, { filename })
+      const ast = babel.parseSync(Component.script.content, {
+        filename,
+        ...(this.options.build.babel |> pick(['configFile', 'babelrc'])),
+        ...(!this.options.build.babel.configFile &&
+          !this.options.build.babel.babelrc && {
+            extends: '@nuxt/babel-preset-app',
+          }),
+      })
       traverse(ast, {
         ExportDefaultDeclaration: path => {
           data = path.node.declaration |> astToLiteral

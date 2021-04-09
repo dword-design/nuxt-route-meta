@@ -1,4 +1,5 @@
 import { endent, mapValues } from '@dword-design/functions'
+import packageName from 'depcheck-package-name'
 import { Builder, Nuxt } from 'nuxt'
 import outputFiles from 'output-files'
 import withLocalTmpDir from 'with-local-tmp-dir'
@@ -12,7 +13,11 @@ const runTest = config => () =>
       dev: false,
       ...config.config,
     })
-    await new Builder(nuxt).build()
+    if (config.error) {
+      await expect(new Builder(nuxt).build()).rejects.toThrow(config.error)
+    } else {
+      await new Builder(nuxt).build()
+    }
   })
 
 export default {
@@ -64,6 +69,51 @@ export default {
       `,
     },
   },
+  'babel syntax with config': {
+    config: {
+      build: {
+        babel: {
+          babelrc: true,
+        },
+      },
+      modules: ['~/../src'],
+    },
+    files: {
+      '.babelrc.json': JSON.stringify({
+        plugins: [
+          [
+            packageName`@babel/plugin-proposal-pipeline-operator`,
+            { proposal: 'fsharp' },
+          ],
+        ],
+      }),
+      'pages/index.vue': endent`
+        <script>
+        export default {
+          foo: 1 |> x => x * 2,
+        }
+        </script>
+
+      `,
+    },
+  },
+  'babel syntax without config': {
+    config: {
+      modules: ['~/../src'],
+    },
+    error:
+      "Support for the experimental syntax 'pipelineOperator' isn't currently enabled",
+    files: {
+      'pages/index.vue': endent`
+        <script>
+        export default {
+          foo: 1 |> x => x * 2,
+        }
+        </script>
+
+      `,
+    },
+  },
   meta: {
     config: {
       modules: ['~/../src', '~/modules/module'],
@@ -91,7 +141,7 @@ export default {
   },
   'spread operator': {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: ['~/../src'],
     },
     files: {
       'pages/index.vue': endent`
