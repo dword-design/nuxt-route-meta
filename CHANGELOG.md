@@ -1,3 +1,10 @@
+## [1.0.14](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.13...v1.0.14) (2021-04-12)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#25](https://github.com/dword-design/nuxt-route-meta/issues/25)) ([4d04178](https://github.com/dword-design/nuxt-route-meta/commit/4d04178b9fe69034ef46f0dda959ec1bb53f224f))
+
 ## [1.0.13](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.12...v1.0.13) (2021-04-09)
 
 
