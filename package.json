@@ -41,7 +41,7 @@
     "depcheck-package-name": "^1.0.5",
     "nuxt": "^2.15.3",
     "output-files": "^1.1.20",
-    "with-local-tmp-dir": "^2.2.15"
+    "with-local-tmp-dir": "^2.2.18"
   },
   "publishConfig": {
     "access": "public"
