@@ -1,3 +1,10 @@
+## [1.0.15](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.14...v1.0.15) (2021-04-20)
+
+
+### Bug Fixes
+
+* updated package.json[keywords] ([#31](https://github.com/dword-design/nuxt-route-meta/issues/31)) ([f3220fa](https://github.com/dword-design/nuxt-route-meta/commit/f3220fada6cfdca6aff72f9bab19d64ad515b43f))
+
 ## [1.0.14](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.13...v1.0.14) (2021-04-12)
 
 
