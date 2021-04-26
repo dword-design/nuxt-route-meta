@@ -1,3 +1,10 @@
+## [1.0.16](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.15...v1.0.16) (2021-04-26)
+
+
+### Bug Fixes
+
+* update dependency with-local-tmp-dir to v3 ([#32](https://github.com/dword-design/nuxt-route-meta/issues/32)) ([01e28f3](https://github.com/dword-design/nuxt-route-meta/commit/01e28f3b4fec7734e267b9c1965692e578c0a2f0))
+
 ## [1.0.15](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.14...v1.0.15) (2021-04-20)
 
 
