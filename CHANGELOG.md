@@ -1,3 +1,19 @@
+# [2.0.0](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.16...v2.0.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/base to v8 ([#35](https://github.com/dword-design/nuxt-route-meta/issues/35)) ([2ce3ae1](https://github.com/dword-design/nuxt-route-meta/commit/2ce3ae1631b2ac5cce3e84dfa0d82b963fa902ee))
+
+
+### BREAKING CHANGES
+
+* require Node.js >= 12
+
+Co-authored-by: Renovate Bot <bot@renovateapp.com>
+Co-authored-by: Sebastian Landwehr <info@dword-design.de>
+Co-authored-by: GitHub Actions <actions@github.com>
+
 ## [1.0.16](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.15...v1.0.16) (2021-04-26)
 
 
