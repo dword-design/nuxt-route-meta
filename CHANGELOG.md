@@ -1,3 +1,12 @@
+## [2.0.2](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.1...v2.0.2) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4 ([#36](https://github.com/dword-design/nuxt-route-meta/issues/36)) ([94c8d1c](https://github.com/dword-design/nuxt-route-meta/commit/94c8d1ce710b110d653918a44be593ae44bb286c))
+* update dependency depcheck-package-name to v2 ([#37](https://github.com/dword-design/nuxt-route-meta/issues/37)) ([a731ee0](https://github.com/dword-design/nuxt-route-meta/commit/a731ee064d7c9207f1cbca4ee0bfaf60e4658b14))
+* update dependency output-files to v2 ([#38](https://github.com/dword-design/nuxt-route-meta/issues/38)) ([b91912f](https://github.com/dword-design/nuxt-route-meta/commit/b91912fc0d5eb9ef738b08c5e1e7f5c5ee464c9c))
+
 ## [2.0.1](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.0...v2.0.1) (2021-05-04)
 
 
