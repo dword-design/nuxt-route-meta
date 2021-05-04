@@ -1,3 +1,11 @@
+## [2.0.1](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.0...v2.0.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency fs-extra to v10 ([#39](https://github.com/dword-design/nuxt-route-meta/issues/39)) ([e86ff68](https://github.com/dword-design/nuxt-route-meta/commit/e86ff681f83c38dce85ce83c54a50c2b491940db))
+* update dependency with-local-tmp-dir to v4 ([#40](https://github.com/dword-design/nuxt-route-meta/issues/40)) ([0961603](https://github.com/dword-design/nuxt-route-meta/commit/0961603ec054d4d01dba4ff91c5e5883fa5614b6))
+
 # [2.0.0](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.16...v2.0.0) (2021-05-03)
 
 
