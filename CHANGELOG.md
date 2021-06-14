@@ -1,3 +1,10 @@
+## [2.0.6](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.5...v2.0.6) (2021-06-14)
+
+
+### Bug Fixes
+
+* update config files ([ed1c6d9](https://github.com/dword-design/nuxt-route-meta/commit/ed1c6d91b80a96e82c2c2a88a9dd9dc20ba5a4b7))
+
 ## [2.0.5](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.4...v2.0.5) (2021-05-28)
 
 
