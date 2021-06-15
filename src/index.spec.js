@@ -114,6 +114,29 @@ export default {
       `,
     },
   },
+  false: {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(false)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <script>
+        export default {
+          foo: false,
+          render: () => <div />
+        }
+        </script>
+
+      `,
+    },
+  },
   meta: {
     config: {
       modules: ['~/../src', '~/modules/module'],
