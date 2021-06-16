@@ -1,3 +1,10 @@
+## [2.0.7](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.6...v2.0.7) (2021-06-16)
+
+
+### Bug Fixes
+
+* use official ast-to-literal ([7ba5fd1](https://github.com/dword-design/nuxt-route-meta/commit/7ba5fd11178572c4e4e770fa4433d5edad95c377))
+
 ## [2.0.6](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.5...v2.0.6) (2021-06-14)
 
 
