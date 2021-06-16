@@ -45,7 +45,7 @@
     "@babel/core": "^7.11.1",
     "@babel/traverse": "^7.13.13",
     "@dword-design/functions": "^4.0.0",
-    "ast-to-literal": "dword-design/ast-to-literal#fork",
+    "ast-to-literal": "^0.0.5",
     "fs-extra": "^10.0.0",
     "vue-template-compiler": "^2.6.11"
   },

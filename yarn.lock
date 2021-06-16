@@ -3226,9 +3226,10 @@ assign-symbols@^1.0.0:
   resolved "https://registry.yarnpkg.com/assign-symbols/-/assign-symbols-1.0.0.tgz#59667f41fadd4f20ccbc2bb96b8d4f7f78ec0367"
   integrity sha1-WWZ/QfrdTyDMvCu5a41Pf3jsA2c=
 
-ast-to-literal@dword-design/ast-to-literal#fork:
-  version "0.0.4"
-  resolved "https://codeload.github.com/dword-design/ast-to-literal/tar.gz/b60bc774738e88d4696b339a15e1824df618ed4a"
+ast-to-literal@^0.0.5:
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/ast-to-literal/-/ast-to-literal-0.0.5.tgz#b21745124985c38b24fa182c25dc26f0e149959d"
+  integrity sha512-ptMcMeA6K4Pqr2waKmPLi8b0qmeedjCIQ9SncC3VIpPlN2GadRsjtK9XUaSGZ+0ZFHdK2wlKR3Yw+NHIt7egpg==
   dependencies:
     "@babel/types" "^7.13.0"
     jest "^25.4.0"
