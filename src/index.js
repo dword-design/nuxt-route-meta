@@ -3,17 +3,25 @@ import traverse from '@babel/traverse'
 import { forEach, omit, pick } from '@dword-design/functions'
 import astToLiteral from 'ast-to-literal'
 import { readFileSync } from 'fs-extra'
+import P from 'path'
 
 export default function () {
   const extractMeta = filename => {
-    const vueTemplateCompiler = require('vue-template-compiler')
+    const fileContent = readFileSync(filename, 'utf8')
 
-    const Component = vueTemplateCompiler.parseComponent(
-      readFileSync(filename, 'utf8')
-    )
+    const scriptContent =
+      P.extname(filename) === '.vue'
+        ? (() => {
+            const vueTemplateCompiler = require('vue-template-compiler')
+
+            const Component = vueTemplateCompiler.parseComponent(fileContent)
+
+            return Component.script?.content
+          })()
+        : fileContent
     let data = {}
-    if (Component.script?.content) {
-      const ast = babel.parseSync(Component.script.content, {
+    if (scriptContent) {
+      const ast = babel.parseSync(scriptContent, {
         filename,
         ...(this.options.build.babel |> pick(['configFile', 'babelrc'])),
         ...(!this.options.build.babel.configFile &&
