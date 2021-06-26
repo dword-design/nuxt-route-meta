@@ -137,6 +137,27 @@ export default {
       `,
     },
   },
+  'js file': {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.js': endent`
+        export default {
+          foo: true,
+          render: () => <div />
+        }
+
+      `,
+    },
+  },
   meta: {
     config: {
       modules: ['~/../src', '~/modules/module'],
