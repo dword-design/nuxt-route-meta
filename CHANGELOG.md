@@ -1,3 +1,10 @@
+# [2.1.0](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.7...v2.1.0) (2021-06-26)
+
+
+### Features
+
+* support js files ([#50](https://github.com/dword-design/nuxt-route-meta/issues/50)) ([5c9d8f7](https://github.com/dword-design/nuxt-route-meta/commit/5c9d8f7d1ac06cf75d025de5bc96b44c9c22654d))
+
 ## [2.0.7](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.6...v2.0.7) (2021-06-16)
 
 
