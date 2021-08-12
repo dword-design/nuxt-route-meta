@@ -183,6 +183,39 @@ export default {
       `,
     },
   },
+  'predefined properties': {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta).toEqual({})
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <script>
+        export default {
+          computed: {
+            foo: () => {},
+          },
+          data: () => ({ foo: 'bar' }),
+          methods: {
+            foo: () => {},
+          },
+          mixins: [{}],
+          render: () => <div />,
+          watch: {
+            foo: () => {},
+          },
+        }
+        </script>
+
+      `,
+    },
+  },
   'spread operator': {
     config: {
       modules: ['~/../src'],

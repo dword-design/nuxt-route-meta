@@ -1,9 +1,18 @@
 import * as babel from '@babel/core'
 import traverse from '@babel/traverse'
-import { forEach, omit, pick } from '@dword-design/functions'
+import { forEach, keys, omit, pick } from '@dword-design/functions'
 import astToLiteral from 'ast-to-literal'
 import { readFileSync } from 'fs-extra'
 import P from 'path'
+
+const predefinedProperties = {
+  computed: true,
+  data: true,
+  methods: true,
+  mixins: true,
+  render: true,
+  watch: true,
+}
 
 export default function () {
   const extractMeta = filename => {
@@ -37,7 +46,7 @@ export default function () {
     }
 
     return {
-      ...(data |> omit(['meta'])),
+      ...(data |> omit(['meta', ...(predefinedProperties |> keys)])),
       ...data.meta,
     }
   }
