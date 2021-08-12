@@ -1,3 +1,10 @@
+## [2.1.4](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.3...v2.1.4) (2021-08-12)
+
+
+### Bug Fixes
+
+* omit predefined vue properties ([e1943ef](https://github.com/dword-design/nuxt-route-meta/commit/e1943eff7786fcb72e9645b9f636ee0677067338))
+
 ## [2.1.3](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.2...v2.1.3) (2021-07-20)
 
 
