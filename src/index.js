@@ -17,32 +17,49 @@ const predefinedProperties = {
 export default function () {
   const extractMeta = filename => {
     const fileContent = readFileSync(filename, 'utf8')
+    let data = {}
 
-    const scriptContent =
+    const Component =
       P.extname(filename) === '.vue'
         ? (() => {
             const vueTemplateCompiler = require('vue-template-compiler')
 
-            const Component = vueTemplateCompiler.parseComponent(fileContent)
-
-            return Component.script?.content
+            return vueTemplateCompiler.parseComponent(fileContent)
           })()
-        : fileContent
-    let data = {}
+        : { script: { content: fileContent, lang: 'js' } }
+
+    const scriptContent = Component.script?.content
     if (scriptContent) {
-      const ast = babel.parseSync(scriptContent, {
-        filename,
-        ...(this.options.build.babel |> pick(['configFile', 'babelrc'])),
-        ...(!this.options.build.babel.configFile &&
-          !this.options.build.babel.babelrc && {
-            extends: '@nuxt/babel-preset-app',
-          }),
-      })
-      traverse(ast, {
-        ExportDefaultDeclaration: path => {
-          data = path.node.declaration |> astToLiteral
-        },
-      })
+      if (Component.script.lang === 'ts') {
+        const ts = require('typescript')
+
+        const tsAstToLiteral = require('ts-ast-to-literal')
+
+        const rootNode = ts.createSourceFile(
+          'x.ts',
+          scriptContent,
+          ts.ScriptTarget.Latest
+        )
+        ts.forEachChild(rootNode, node => {
+          if (node.kind === ts.SyntaxKind.ExportAssignment) {
+            data = node.expression |> tsAstToLiteral
+          }
+        })
+      } else {
+        const ast = babel.parseSync(scriptContent, {
+          filename,
+          ...(this.options.build.babel |> pick(['configFile', 'babelrc'])),
+          ...(!this.options.build.babel.configFile &&
+            !this.options.build.babel.babelrc && {
+              extends: '@nuxt/babel-preset-app',
+            }),
+        })
+        traverse(ast, {
+          ExportDefaultDeclaration: path => {
+            data = path.node.declaration |> astToLiteral
+          },
+        })
+      }
     }
 
     return {

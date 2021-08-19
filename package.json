@@ -47,14 +47,19 @@
     "@dword-design/functions": "^4.0.0",
     "ast-to-literal": "^0.0.5",
     "fs-extra": "^10.0.0",
+    "ts-ast-to-literal": "^1.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
     "@dword-design/base": "^8.0.0",
+    "@nuxt/typescript-build": "^2.1.0",
     "depcheck-package-name": "^2.0.0",
     "nuxt": "^2.15.3",
     "output-files": "^2.0.0",
     "with-local-tmp-dir": "^4.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "~4.2"
   },
   "engines": {
     "node": ">=12"

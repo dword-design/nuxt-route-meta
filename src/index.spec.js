@@ -231,4 +231,52 @@ export default {
       `,
     },
   },
+  typescript: {
+    config: {
+      buildModules: [packageName`@nuxt/typescript-build`],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+        
+        <script lang="ts">
+        const foo: number = 1
+        export default {
+          foo: true,
+        }
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify({
+        compilerOptions: {
+          allowJs: true,
+          baseUrl: '.',
+          esModuleInterop: true,
+          lib: ['ESNext', 'ESNext.AsyncIterable', 'DOM'],
+          module: 'ESNext',
+          moduleResolution: 'Node',
+          noEmit: true,
+          paths: {
+            '@/*': ['./*'],
+            '~/*': ['./*'],
+          },
+          sourceMap: true,
+          strict: true,
+          target: 'ES2018',
+          types: ['@types/node', '@nuxt/types'],
+        },
+        exclude: ['node_modules'],
+      }),
+    },
+  },
 } |> mapValues(runTest)
