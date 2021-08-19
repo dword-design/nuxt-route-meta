@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.4...v2.2.0) (2021-08-19)
+
+
+### Features
+
+* typescript support ([#60](https://github.com/dword-design/nuxt-route-meta/issues/60)) ([99cfd85](https://github.com/dword-design/nuxt-route-meta/commit/99cfd85e1f12802286504ae897eb9bf584dcb29c))
+
 ## [2.1.4](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.3...v2.1.4) (2021-08-12)
 
 
