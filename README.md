@@ -114,6 +114,10 @@ export default function () {
 }
 ```
 
+## TypeScript support
+
+The module has built-in support for TypeScript. Requirement is that the TypeScript module is installed as described in [the Nuxt TypeScript docs](https://typescript.nuxtjs.org/guide/setup).
+
 <!-- LICENSE/ -->
 ## Contribute
 
