@@ -59,7 +59,7 @@
     "with-local-tmp-dir": "^4.0.0"
   },
   "peerDependencies": {
-    "typescript": "~4.2"
+    "typescript": "~4.3.0"
   },
   "engines": {
     "node": ">=12"
