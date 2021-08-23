@@ -1,3 +1,10 @@
+## [2.2.2](https://github.com/dword-design/nuxt-route-meta/compare/v2.2.1...v2.2.2) (2021-08-23)
+
+
+### Bug Fixes
+
+* typescript class api support ([fc17626](https://github.com/dword-design/nuxt-route-meta/commit/fc176266b5181f9a14eaf0fce7891e31039344df))
+
 ## [2.2.1](https://github.com/dword-design/nuxt-route-meta/compare/v2.2.0...v2.2.1) (2021-08-19)
 
 
