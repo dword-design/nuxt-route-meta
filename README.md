@@ -50,7 +50,7 @@
 <!-- /BADGES -->
 
 <!-- DESCRIPTION/ -->
-Adds Nuxt page data to route meta at build time.
+Adds Nuxt page data to route meta at build time. Also supports TypeScript.
 <!-- /DESCRIPTION -->
 
 Nuxt pages have a `meta` property that allows to define meta data. These can be accessed in middlewares via `route.meta` at runtime. What does not work however is to access the meta data at build time in the routes object itself. This is needed when postprocessing routes via [extendRoutes](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router) or the [@nuxtjs/sitemap](https://www.npmjs.com/package/@nuxtjs/sitemap) module. This module fills this gap by parsing the page files, extracting the meta data, and writing them to the `meta` field of each route corresponding to the page.
@@ -117,6 +117,39 @@ export default function () {
 ## TypeScript support
 
 The module has built-in support for TypeScript. Requirement is that the TypeScript module is installed as described in [the Nuxt TypeScript docs](https://typescript.nuxtjs.org/guide/setup).
+
+### Options API
+
+As of writing this, Nuxt does not seem to support the options API with Nuxt-specific properties like `asyncData`, `fetch`, `meta`, etc. In case this changes, open up an issue.
+
+### Class API
+
+```js
+<script lang="ts">
+import Vue from 'vue'
+
+export default class MyComponent extends Vue {
+  meta = {
+    foo: true,
+  }
+}
+</script>
+```
+
+### Class API with decorator
+
+```js
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component
+export default class MyComponent extends Vue {
+  meta = {
+    foo: true,
+  }
+}
+</script>
+```
 
 <!-- LICENSE/ -->
 ## Contribute

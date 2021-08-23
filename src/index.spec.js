@@ -4,6 +4,28 @@ import { Builder, Nuxt } from 'nuxt'
 import outputFiles from 'output-files'
 import withLocalTmpDir from 'with-local-tmp-dir'
 
+const tsconfig = {
+  compilerOptions: {
+    allowJs: true,
+    baseUrl: '.',
+    esModuleInterop: true,
+    experimentalDecorators: true,
+    lib: ['ESNext', 'ESNext.AsyncIterable', 'DOM'],
+    module: 'ESNext',
+    moduleResolution: 'Node',
+    noEmit: true,
+    paths: {
+      '@/*': ['./*'],
+      '~/*': ['./*'],
+    },
+    sourceMap: true,
+    strict: true,
+    target: 'ES2018',
+    types: ['@types/node', '@nuxt/types'],
+  },
+  exclude: ['node_modules'],
+}
+
 const runTest = config => () =>
   withLocalTmpDir(async () => {
     await outputFiles(config.files)
@@ -231,7 +253,97 @@ export default {
       `,
     },
   },
-  typescript: {
+  'typescript: class api': {
+    config: {
+      buildModules: [packageName`@nuxt/typescript-build`],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+        
+        <script lang="ts">
+        import Vue from 'vue'
+
+        export default class extends Vue {
+          meta = {
+            foo: true,
+          }
+        }
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify(tsconfig),
+    },
+  },
+  'typescript: class api plain object inside': {
+    config: {
+      buildModules: [packageName`@nuxt/typescript-build`],
+      modules: ['~/../src'],
+    },
+    error: 'Nuxt build error',
+    files: {
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+        
+        <script lang="ts">
+        import Vue from 'vue'
+
+        export default class MyComponent extends Vue {
+          meta: {
+            foo: true,
+          }
+        }
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify(tsconfig),
+    },
+  },
+  'typescript: class api with component name': {
+    config: {
+      buildModules: [packageName`@nuxt/typescript-build`],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+        
+        <script lang="ts">
+        import Vue from 'vue'
+
+        export default class MyComponent extends Vue {
+          meta = {
+            foo: true,
+          }
+        }
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify(tsconfig),
+    },
+  },
+  'typescript: object': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
       modules: ['~/../src', '~/modules/module'],
@@ -257,26 +369,73 @@ export default {
         </script>
 
       `,
-      'tsconfig.json': JSON.stringify({
-        compilerOptions: {
-          allowJs: true,
-          baseUrl: '.',
-          esModuleInterop: true,
-          lib: ['ESNext', 'ESNext.AsyncIterable', 'DOM'],
-          module: 'ESNext',
-          moduleResolution: 'Node',
-          noEmit: true,
-          paths: {
-            '@/*': ['./*'],
-            '~/*': ['./*'],
-          },
-          sourceMap: true,
-          strict: true,
-          target: 'ES2018',
-          types: ['@types/node', '@nuxt/types'],
-        },
-        exclude: ['node_modules'],
-      }),
+      'tsconfig.json': JSON.stringify(tsconfig),
+    },
+  },
+  'typescript: options api': {
+    config: {
+      buildModules: [packageName`@nuxt/typescript-build`],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    error: 'Nuxt build error',
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+        
+        <script lang="ts">
+        import Vue from 'vue'
+
+        export default Vue.extend({
+          meta: {
+            foo: true,
+          }
+        })
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify(tsconfig),
+    },
+  },
+  'typescript: property decorator': {
+    config: {
+      buildModules: [packageName`@nuxt/typescript-build`],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+        
+        <script lang="ts">
+        import { Vue, Component } from '${packageName`vue-property-decorator`}'
+
+        @Component
+        export default class extends Vue {
+          meta = {
+            foo: true,
+          }
+        }
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify(tsconfig),
     },
   },
 } |> mapValues(runTest)

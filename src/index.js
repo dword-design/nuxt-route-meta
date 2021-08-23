@@ -1,6 +1,15 @@
 import * as babel from '@babel/core'
 import traverse from '@babel/traverse'
-import { forEach, keys, omit, pick } from '@dword-design/functions'
+import {
+  filter,
+  forEach,
+  fromPairs,
+  keys,
+  map,
+  omit,
+  pick,
+  some,
+} from '@dword-design/functions'
 import astToLiteral from 'ast-to-literal'
 import { readFileSync } from 'fs-extra'
 import P from 'path'
@@ -41,8 +50,49 @@ export default function () {
           ts.ScriptTarget.Latest
         )
         ts.forEachChild(rootNode, node => {
-          if (node.kind === ts.SyntaxKind.ExportAssignment) {
-            data = node.expression |> tsAstToLiteral
+          switch (node.kind) {
+            case ts.SyntaxKind.ExportAssignment: {
+              const object =
+                node.expression.kind === ts.SyntaxKind.CallExpression &&
+                node.expression.expression.kind ===
+                  ts.SyntaxKind.PropertyAccessExpression &&
+                node.expression.expression.expression.escapedText === 'Vue' &&
+                node.expression.expression.name.escapedText === 'extend' &&
+                node.expression.arguments.length === 1
+                  ? node.expression.arguments[0]
+                  : node.expression
+              data = object |> tsAstToLiteral
+              break
+            }
+            case ts.SyntaxKind.ClassDeclaration: {
+              if (
+                (node.modifiers || []
+                  |> some(
+                    modifier => modifier.kind === ts.SyntaxKind.ExportKeyword
+                  )) &&
+                (node.modifiers || []
+                  |> some(
+                    modifier => modifier.kind === ts.SyntaxKind.DefaultKeyword
+                  )) &&
+                (node.heritageClauses || []
+                  |> some(
+                    clause =>
+                      clause.types
+                      |> some(type => type.expression.escapedText === 'Vue')
+                  ))
+              ) {
+                data =
+                  node.members
+                  |> filter(member => member.initializer !== undefined)
+                  |> map(member => [
+                    member.name.escapedText,
+                    member.initializer |> tsAstToLiteral,
+                  ])
+                  |> fromPairs
+              }
+              break
+            }
+            default:
           }
         })
       } else {
