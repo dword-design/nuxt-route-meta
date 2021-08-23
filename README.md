@@ -118,6 +118,39 @@ export default function () {
 
 The module has built-in support for TypeScript. Requirement is that the TypeScript module is installed as described in [the Nuxt TypeScript docs](https://typescript.nuxtjs.org/guide/setup).
 
+### Options API
+
+As of writing this, Nuxt does not seem to support the options API with Nuxt-specific properties like `asyncData`, `fetch`, `meta`, etc. In case this changes, open up an issue.
+
+### Class API
+
+```js
+<script lang="ts">
+import Vue from 'vue'
+
+export default class MyComponent extends Vue {
+  meta = {
+    foo: true,
+  }
+}
+</script>
+```
+
+### Class API with decorator
+
+```js
+<script lang="ts">
+import { Vue, Component } from 'vue-property-decorator'
+
+@Component
+export default class MyComponent extends Vue {
+  meta = {
+    foo: true,
+  }
+}
+</script>
+```
+
 <!-- LICENSE/ -->
 ## Contribute
 
