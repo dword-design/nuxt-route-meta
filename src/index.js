@@ -54,11 +54,15 @@ export default function () {
             case ts.SyntaxKind.ExportAssignment: {
               const object =
                 node.expression.kind === ts.SyntaxKind.CallExpression &&
-                node.expression.expression.kind ===
+                ((node.expression.expression.kind ===
                   ts.SyntaxKind.PropertyAccessExpression &&
-                node.expression.expression.expression.escapedText === 'Vue' &&
-                node.expression.expression.name.escapedText === 'extend' &&
-                node.expression.arguments.length === 1
+                  node.expression.expression.expression.escapedText === 'Vue' &&
+                  node.expression.expression.name.escapedText === 'extend' &&
+                  node.expression.arguments.length === 1) ||
+                  (node.expression.expression.kind ===
+                    ts.SyntaxKind.Identifier &&
+                    node.expression.expression.escapedText ===
+                      'defineComponent'))
                   ? node.expression.arguments[0]
                   : node.expression
               data = object |> tsAstToLiteral
