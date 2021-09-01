@@ -155,7 +155,33 @@ export default {
           render: () => <div />
         }
         </script>
+      `,
+    },
+  },
+  'js composition api': {
+    config: {
+      buildModules: [packageName`@nuxtjs/composition-api/module`],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <script>
+        import { defineComponent } from '${packageName`@nuxtjs/composition-api`}'
 
+        export default defineComponent({
+          meta: {
+            foo: true,
+          },
+          setup() {}
+        })
+        </script>
       `,
     },
   },

@@ -153,10 +153,10 @@ export default class MyComponent extends Vue {
 
 ### Composition API
 
-This package ships with support for the Vue composition-api. When setting up your nuxt project, make sure to follow [`@nuxtjs/composition-api` guide](https://composition-api.nuxtjs.org/getting-started/setup) closely.
+This package ships with support for the Vue composition-api (both for javascript and typescript). When setting up your nuxt project, make sure to follow [`@nuxtjs/composition-api` guide](https://composition-api.nuxtjs.org/getting-started/setup) closely.
 
 ```js
-<script lang="ts">
+<script>
 import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({

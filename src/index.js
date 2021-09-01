@@ -110,7 +110,12 @@ export default function () {
         })
         traverse(ast, {
           ExportDefaultDeclaration: path => {
-            data = path.node.declaration |> astToLiteral
+            const object =
+              path.node.declaration.type === 'CallExpression' &&
+              path.node.declaration.callee.name === 'defineComponent'
+                ? path.node.declaration.arguments[0]
+                : path.node.declaration
+            data = object |> astToLiteral
           },
         })
       }
