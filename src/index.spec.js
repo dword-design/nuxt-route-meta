@@ -155,7 +155,33 @@ export default {
           render: () => <div />
         }
         </script>
+      `,
+    },
+  },
+  'js composition api': {
+    config: {
+      buildModules: [packageName`@nuxtjs/composition-api/module`],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <script>
+        import { defineComponent } from '${packageName`@nuxtjs/composition-api`}'
 
+        export default defineComponent({
+          meta: {
+            foo: true,
+          },
+          setup() {}
+        })
+        </script>
       `,
     },
   },
@@ -270,7 +296,7 @@ export default {
         <template>
           <div />
         </template>
-        
+
         <script lang="ts">
         import Vue from 'vue'
 
@@ -296,7 +322,7 @@ export default {
         <template>
           <div />
         </template>
-        
+
         <script lang="ts">
         import Vue from 'vue'
 
@@ -328,7 +354,7 @@ export default {
         <template>
           <div />
         </template>
-        
+
         <script lang="ts">
         import Vue from 'vue'
 
@@ -337,6 +363,41 @@ export default {
             foo: true,
           }
         }
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify(tsconfig),
+    },
+  },
+  'typescript: composition api': {
+    config: {
+      buildModules: [
+        packageName`@nuxtjs/composition-api/module`,
+        packageName`@nuxt/typescript-build`,
+      ],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+        
+        <script lang="ts">
+        import { defineComponent } from '${packageName`@nuxtjs/composition-api`}'
+
+        export default defineComponent({
+          meta: {
+            foo: true,
+          }
+        })
         </script>
 
       `,
@@ -360,7 +421,7 @@ export default {
         <template>
           <div />
         </template>
-        
+
         <script lang="ts">
         const foo: number = 1
         export default {
@@ -390,7 +451,7 @@ export default {
         <template>
           <div />
         </template>
-        
+
         <script lang="ts">
         import Vue from 'vue'
 
@@ -422,7 +483,7 @@ export default {
         <template>
           <div />
         </template>
-        
+
         <script lang="ts">
         import { Vue, Component } from '${packageName`vue-property-decorator`}'
 

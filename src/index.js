@@ -54,11 +54,15 @@ export default function () {
             case ts.SyntaxKind.ExportAssignment: {
               const object =
                 node.expression.kind === ts.SyntaxKind.CallExpression &&
-                node.expression.expression.kind ===
+                ((node.expression.expression.kind ===
                   ts.SyntaxKind.PropertyAccessExpression &&
-                node.expression.expression.expression.escapedText === 'Vue' &&
-                node.expression.expression.name.escapedText === 'extend' &&
-                node.expression.arguments.length === 1
+                  node.expression.expression.expression.escapedText === 'Vue' &&
+                  node.expression.expression.name.escapedText === 'extend' &&
+                  node.expression.arguments.length === 1) ||
+                  (node.expression.expression.kind ===
+                    ts.SyntaxKind.Identifier &&
+                    node.expression.expression.escapedText ===
+                      'defineComponent'))
                   ? node.expression.arguments[0]
                   : node.expression
               data = object |> tsAstToLiteral
@@ -106,7 +110,12 @@ export default function () {
         })
         traverse(ast, {
           ExportDefaultDeclaration: path => {
-            data = path.node.declaration |> astToLiteral
+            const object =
+              path.node.declaration.type === 'CallExpression' &&
+              path.node.declaration.callee.name === 'defineComponent'
+                ? path.node.declaration.arguments[0]
+                : path.node.declaration
+            data = object |> astToLiteral
           },
         })
       }
