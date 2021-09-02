@@ -231,6 +231,39 @@ export default {
       `,
     },
   },
+  'options api': {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes => {
+            expect(routes[0].meta.foo).toEqual(true)
+            expect(routes[0].meta.bar).toEqual(true)
+          })
+        }
+      `,
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+
+        <script>
+        import Vue from 'vue'
+
+        export default Vue.extend({
+          foo: true,
+          meta: {
+            bar: true,
+          }
+        })
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify(tsconfig),
+    },
+  },
   'predefined properties': {
     config: {
       modules: ['~/../src', '~/modules/module'],
@@ -264,6 +297,34 @@ export default {
         }
         </script>
 
+      `,
+    },
+  },
+  'property decorator': {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes => {
+            expect(routes[0].meta.foo).toEqual(true)
+            expect(routes[0].meta.bar).toEqual(true)
+          })
+        }
+      `,
+      'pages/index.vue': endent`
+        <script>
+        import { Component, Vue } from '${packageName`nuxt-property-decorator`}'
+
+        @Component
+        export class Foo extends Vue {
+          foo = true
+          meta = {
+            bar: true,
+          }
+        }
+        </script>
       `,
     },
   },
@@ -463,6 +524,40 @@ export default {
             foo: true,
           }
         })
+        </script>
+
+      `,
+      'tsconfig.json': JSON.stringify(tsconfig),
+    },
+  },
+  'typescript: plain object': {
+    config: {
+      buildModules: [packageName`@nuxt/typescript-build`],
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes => {
+            expect(routes[0].meta.foo).toEqual(true)
+            expect(routes[0].meta.bar).toEqual(true)
+          })
+        }
+      `,
+      'pages/index.vue': endent`
+        <template>
+          <div />
+        </template>
+
+        <script lang="ts">
+        import Vue from 'vue'
+
+        export default {
+          foo: true,
+          meta: {
+            bar: true,
+          },
+        }
         </script>
 
       `,

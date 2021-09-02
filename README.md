@@ -114,15 +114,9 @@ export default function () {
 }
 ```
 
-## TypeScript support
+## TypeScript
 
 The module has built-in support for TypeScript. Requirement is that the TypeScript module is installed as described in [the Nuxt TypeScript docs](https://typescript.nuxtjs.org/guide/setup).
-
-### Options API
-
-As of writing this, Nuxt does not seem to support the options API with Nuxt-specific properties like `asyncData`, `fetch`, `meta`, etc. In case this changes, open up an issue.
-
-### Class API
 
 ```js
 <script lang="ts">
@@ -136,7 +130,71 @@ export default class MyComponent extends Vue {
 </script>
 ```
 
-### Class API with decorator
+## Supported APIs
+
+### Plain object
+
+```js
+<script>
+export default {
+  auth: true,
+  meta: {
+    theme: 'water',
+  },
+}
+</script>
+```
+
+This API does not make much sense with TypeScript because you do not have type information in the components.
+
+### Options API
+
+```js
+<script>
+import Vue from 'vue'
+
+export default class MyComponent extends Vue {
+  meta = {
+    foo: true,
+  },
+}
+</script>
+```
+
+As of writing this, Nuxt with TypeScript does not seem to support the options API with Nuxt-specific properties like `asyncData`, `fetch`, `meta`, etc. In case this changes, open up an issue.
+
+### Class API
+
+```js
+<script>
+import Vue from 'vue'
+
+export default class MyComponent extends Vue {
+  meta = {
+    foo: true,
+  },
+}
+</script>
+```
+
+### Property decorator
+
+Plain JavaScript: Install [nuxt-property-decorator](https://github.com/nuxt-community/nuxt-property-decorator).
+
+```js
+<script>
+import { Vue, Component } from 'nuxt-property-decorator'
+
+@Component
+export default class MyComponent extends Vue {
+  meta = {
+    foo: true,
+  },
+}
+</script>
+```
+
+TypeScript:
 
 ```js
 <script lang="ts">
@@ -151,9 +209,9 @@ export default class MyComponent extends Vue {
 </script>
 ```
 
-## Composition API (JavaScript and TypeScript)
+## Composition API
 
-This package ships with support for the Vue composition API for both JavaScript and TypeScript. When setting up your nuxt project, make sure to follow the [`@nuxtjs/composition-api` guide](https://composition-api.nuxtjs.org/getting-started/setup) closely.
+This package ships with support for the Vue composition API. When setting up your nuxt project, make sure to follow the [`@nuxtjs/composition-api` guide](https://composition-api.nuxtjs.org/getting-started/setup) closely.
 
 ```js
 <script>

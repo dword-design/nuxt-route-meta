@@ -110,10 +110,23 @@ export default function () {
             }),
         })
         traverse(ast, {
+          ClassDeclaration: path => {
+            if (path.node.superClass.name === 'Vue') {
+              data =
+                path.node.body.body
+                |> map(property => [
+                  property.key.name,
+                  property.value |> astToLiteral,
+                ])
+                |> fromPairs
+            }
+          },
           ExportDefaultDeclaration: path => {
             const object =
               path.node.declaration.type === 'CallExpression' &&
-              path.node.declaration.callee.name === 'defineComponent'
+              (path.node.declaration.callee.name === 'defineComponent' ||
+                (path.node.declaration.callee.object?.name === 'Vue' &&
+                  path.node.declaration.callee.property?.name === 'extend'))
                 ? path.node.declaration.arguments[0]
                 : path.node.declaration
             data = object |> astToLiteral
