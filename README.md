@@ -90,12 +90,14 @@ Add some properties to your pages:
 ```
 
 ```js
+<script>
 export default {
   auth: true,
   meta: {
     theme: 'water',
   },
 }
+</script>
 ```
 
 That's it! Now you can access the meta data in `route.meta` from anywhere as you know it from [vue-router](https://www.npmjs.com/package/vue-router). The module takes all properties that all properties that are not functions, and the meta property itself is merged into the result. So `route.meta` from the example above is `{ auth: true, theme: 'water' }`.
