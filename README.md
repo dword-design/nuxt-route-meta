@@ -131,7 +131,7 @@ import Vue from 'vue'
 export default class MyComponent extends Vue {
   meta = {
     foo: true,
-  }
+  },
 }
 </script>
 ```
@@ -146,7 +146,7 @@ import { Vue, Component } from 'vue-property-decorator'
 export default class MyComponent extends Vue {
   meta = {
     foo: true,
-  }
+  },
 }
 </script>
 ```
@@ -161,8 +161,8 @@ import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   meta: {
-    auth: true
-  }
+    auth: true,
+  },
 })
 </script>
 ```

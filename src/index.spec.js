@@ -249,6 +249,9 @@ export default {
           computed: {
             foo: () => {},
           },
+          components: {
+            Foo: {},
+          },
           data: () => ({ foo: 'bar' }),
           methods: {
             foo: () => {},
