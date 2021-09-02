@@ -1,3 +1,15 @@
+# [2.3.0](https://github.com/dword-design/nuxt-route-meta/compare/v2.2.2...v2.3.0) (2021-09-02)
+
+
+### Bug Fixes
+
+* composition api doc ([eb085b9](https://github.com/dword-design/nuxt-route-meta/commit/eb085b9e003a816e7679e77b1dac19a2b7d87d13))
+
+
+### Features
+
+* add composition-api support ([#68](https://github.com/dword-design/nuxt-route-meta/issues/68)) ([72677d5](https://github.com/dword-design/nuxt-route-meta/commit/72677d573f69385decf8561d8bbd83f11371cfb1))
+
 ## [2.2.2](https://github.com/dword-design/nuxt-route-meta/compare/v2.2.1...v2.2.2) (2021-08-23)
 
 
