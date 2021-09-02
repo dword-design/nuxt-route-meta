@@ -1,3 +1,11 @@
+## [2.3.2](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.1...v2.3.2) (2021-09-02)
+
+
+### Bug Fixes
+
+* doc ([f7df917](https://github.com/dword-design/nuxt-route-meta/commit/f7df917af038db659b135c88c7cb10010d3464f3))
+* property decorator ([#24](https://github.com/dword-design/nuxt-route-meta/issues/24)) ([5f62b2c](https://github.com/dword-design/nuxt-route-meta/commit/5f62b2cfe77f038c237c53c672f71efdf33bfd9d))
+
 ## [2.3.1](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.0...v2.3.1) (2021-09-02)
 
 
