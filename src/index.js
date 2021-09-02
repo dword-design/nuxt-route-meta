@@ -15,6 +15,7 @@ import { readFileSync } from 'fs-extra'
 import P from 'path'
 
 const predefinedProperties = {
+  components: true,
   computed: true,
   data: true,
   methods: true,
