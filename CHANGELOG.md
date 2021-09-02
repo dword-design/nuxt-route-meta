@@ -1,3 +1,10 @@
+## [2.3.1](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.0...v2.3.1) (2021-09-02)
+
+
+### Bug Fixes
+
+* remove components property ([#69](https://github.com/dword-design/nuxt-route-meta/issues/69)) ([a843929](https://github.com/dword-design/nuxt-route-meta/commit/a843929f81e16d917414feda7c930944348feec3))
+
 # [2.3.0](https://github.com/dword-design/nuxt-route-meta/compare/v2.2.2...v2.3.0) (2021-09-02)
 
 
