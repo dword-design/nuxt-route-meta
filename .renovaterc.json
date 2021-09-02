@@ -1,6 +1,7 @@
 {
   "extends": [
-    ":semanticCommits"
+    ":semanticCommits",
+    ":semanticPrefixFix"
   ],
   "ignorePaths": [
     ".github/workflows/build.yml"
@@ -9,23 +10,18 @@
     "maintenance"
   ],
   "lockFileMaintenance": {
-    "enabled": true
+    "automerge": true,
+    "enabled": true,
+    "semanticCommitType": "chore"
   },
   "packageRules": [
     {
-      "packagePatterns": [
-        "*"
-      ],
-      "semanticCommitType": "chore"
-    },
-    {
-      "depTypeList": [
-        "dependencies",
-        "devDependencies",
-        "peerDependencies",
-        "optionalDependencies"
-      ],
-      "semanticCommitType": "fix"
+      "automerge": true,
+      "matchCurrentVersion": ">=1.0.0",
+      "matchUpdateTypes": [
+        "minor",
+        "patch"
+      ]
     }
   ],
   "semanticCommitScope": null

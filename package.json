@@ -1,20 +1,33 @@
 {
   "name": "nuxt-route-meta",
-  "version": "1.0.12",
-  "description": "Adds page meta data to Nuxt route objects at build time.",
+  "version": "2.3.0",
+  "description": "Adds Nuxt page data to route meta at build time. Also supports TypeScript.",
   "keywords": [
     "auth",
-    "meta",
+    "authentication",
+    "frontend",
+    "javascript",
+    "meta-data",
+    "node",
+    "nodejs",
+    "npm",
+    "npm-package",
     "nuxt",
+    "nuxt-module",
+    "nuxtjs",
+    "nuxtjs-module",
     "page",
+    "pages",
     "route",
     "router",
-    "vue"
+    "vue",
+    "vue-router",
+    "webdevelopment"
   ],
   "repository": "dword-design/nuxt-route-meta",
-  "funding": "https://www.buymeacoffee.com/dword",
+  "funding": "https://github.com/sponsors/dword-design",
   "license": "MIT",
-  "author": "Sebastian Landwehr <info@dword-design.de>",
+  "author": "Sebastian Landwehr <info@sebastianlandwehr.com>",
   "main": "dist/index.js",
   "files": [
     "dist"
@@ -31,18 +44,29 @@
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@babel/traverse": "^7.13.13",
-    "@dword-design/functions": "^3.0.0",
-    "ast-to-literal": "dword-design/ast-to-literal#fork",
-    "fs-extra": "^9.0.1",
+    "@dword-design/functions": "^4.0.0",
+    "ast-to-literal": "^0.0.5",
+    "fs-extra": "^10.0.0",
+    "ts-ast-to-literal": "^1.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
-    "@dword-design/base": "^7.0.0",
-    "depcheck-package-name": "^1.0.5",
+    "@dword-design/base": "^8.0.0",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/composition-api": "^0.27.0",
+    "depcheck-package-name": "^2.0.0",
     "nuxt": "^2.15.3",
     "nuxt-property-decorator": "^2.9.1",
-    "output-files": "^1.1.20",
-    "with-local-tmp-dir": "^2.2.15"
+    "output-files": "^2.0.0",
+    "vue-class-component": "^7.2.6",
+    "vue-property-decorator": "^9.1.2",
+    "with-local-tmp-dir": "^4.0.0"
+  },
+  "peerDependencies": {
+    "typescript": "~4.2"
+  },
+  "engines": {
+    "node": ">=12"
   },
   "publishConfig": {
     "access": "public"

@@ -1,3 +1,171 @@
+# [2.3.0](https://github.com/dword-design/nuxt-route-meta/compare/v2.2.2...v2.3.0) (2021-09-02)
+
+
+### Bug Fixes
+
+* composition api doc ([eb085b9](https://github.com/dword-design/nuxt-route-meta/commit/eb085b9e003a816e7679e77b1dac19a2b7d87d13))
+
+
+### Features
+
+* add composition-api support ([#68](https://github.com/dword-design/nuxt-route-meta/issues/68)) ([72677d5](https://github.com/dword-design/nuxt-route-meta/commit/72677d573f69385decf8561d8bbd83f11371cfb1))
+
+## [2.2.2](https://github.com/dword-design/nuxt-route-meta/compare/v2.2.1...v2.2.2) (2021-08-23)
+
+
+### Bug Fixes
+
+* typescript class api support ([fc17626](https://github.com/dword-design/nuxt-route-meta/commit/fc176266b5181f9a14eaf0fce7891e31039344df))
+
+## [2.2.1](https://github.com/dword-design/nuxt-route-meta/compare/v2.2.0...v2.2.1) (2021-08-19)
+
+
+### Bug Fixes
+
+* document typescript ([596c600](https://github.com/dword-design/nuxt-route-meta/commit/596c600260e8d1b5d197771665966071a0cb02d7))
+* update config files ([a74fa66](https://github.com/dword-design/nuxt-route-meta/commit/a74fa66273eb2a0086cc387496f1eebb3a0d94aa))
+* write GitHub metadata to package.json [description] ([#62](https://github.com/dword-design/nuxt-route-meta/issues/62)) ([c474e05](https://github.com/dword-design/nuxt-route-meta/commit/c474e0578e26b4f759ce9500425d99d7bccd1adf))
+
+# [2.2.0](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.4...v2.2.0) (2021-08-19)
+
+
+### Features
+
+* typescript support ([#60](https://github.com/dword-design/nuxt-route-meta/issues/60)) ([99cfd85](https://github.com/dword-design/nuxt-route-meta/commit/99cfd85e1f12802286504ae897eb9bf584dcb29c))
+
+## [2.1.4](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.3...v2.1.4) (2021-08-12)
+
+
+### Bug Fixes
+
+* omit predefined vue properties ([e1943ef](https://github.com/dword-design/nuxt-route-meta/commit/e1943eff7786fcb72e9645b9f636ee0677067338))
+
+## [2.1.3](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.2...v2.1.3) (2021-07-20)
+
+
+### Bug Fixes
+
+* update config files ([4575e0a](https://github.com/dword-design/nuxt-route-meta/commit/4575e0a57af009265314031f5e797f0b9ab180e3))
+
+## [2.1.2](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.1...v2.1.2) (2021-07-06)
+
+
+### Bug Fixes
+
+* update config files ([c28e65e](https://github.com/dword-design/nuxt-route-meta/commit/c28e65ec62d7aac558a10dd0eac1a9b40c7f289d))
+
+## [2.1.1](https://github.com/dword-design/nuxt-route-meta/compare/v2.1.0...v2.1.1) (2021-06-29)
+
+
+### Bug Fixes
+
+* see also ([5d2e44e](https://github.com/dword-design/nuxt-route-meta/commit/5d2e44e02b303928fd507c4398574dd9ddd10198))
+
+# [2.1.0](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.7...v2.1.0) (2021-06-26)
+
+
+### Features
+
+* support js files ([#50](https://github.com/dword-design/nuxt-route-meta/issues/50)) ([5c9d8f7](https://github.com/dword-design/nuxt-route-meta/commit/5c9d8f7d1ac06cf75d025de5bc96b44c9c22654d))
+
+## [2.0.7](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.6...v2.0.7) (2021-06-16)
+
+
+### Bug Fixes
+
+* use official ast-to-literal ([7ba5fd1](https://github.com/dword-design/nuxt-route-meta/commit/7ba5fd11178572c4e4e770fa4433d5edad95c377))
+
+## [2.0.6](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.5...v2.0.6) (2021-06-14)
+
+
+### Bug Fixes
+
+* update config files ([ed1c6d9](https://github.com/dword-design/nuxt-route-meta/commit/ed1c6d91b80a96e82c2c2a88a9dd9dc20ba5a4b7))
+
+## [2.0.5](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.4...v2.0.5) (2021-05-28)
+
+
+### Bug Fixes
+
+* update config files ([14a9b09](https://github.com/dword-design/nuxt-route-meta/commit/14a9b09d36bb47ab4ac76f3e7f5b2edb7c07d4a0))
+
+## [2.0.4](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.3...v2.0.4) (2021-05-15)
+
+
+### Bug Fixes
+
+* update config files ([04139c3](https://github.com/dword-design/nuxt-route-meta/commit/04139c30e14060ec017ff2ec818fa58d849cc600))
+* updated package.json[description] ([#42](https://github.com/dword-design/nuxt-route-meta/issues/42)) ([184b46e](https://github.com/dword-design/nuxt-route-meta/commit/184b46e519fe959124005121ffeaa98aa0f0b1b4))
+
+## [2.0.3](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.2...v2.0.3) (2021-05-04)
+
+
+### Bug Fixes
+
+* trigger release ([e060c2b](https://github.com/dword-design/nuxt-route-meta/commit/e060c2bf8bacfe6b680ad13e1336ed56ef4f5f2b))
+
+## [2.0.2](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.1...v2.0.2) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4 ([#36](https://github.com/dword-design/nuxt-route-meta/issues/36)) ([94c8d1c](https://github.com/dword-design/nuxt-route-meta/commit/94c8d1ce710b110d653918a44be593ae44bb286c))
+* update dependency depcheck-package-name to v2 ([#37](https://github.com/dword-design/nuxt-route-meta/issues/37)) ([a731ee0](https://github.com/dword-design/nuxt-route-meta/commit/a731ee064d7c9207f1cbca4ee0bfaf60e4658b14))
+* update dependency output-files to v2 ([#38](https://github.com/dword-design/nuxt-route-meta/issues/38)) ([b91912f](https://github.com/dword-design/nuxt-route-meta/commit/b91912fc0d5eb9ef738b08c5e1e7f5c5ee464c9c))
+
+## [2.0.1](https://github.com/dword-design/nuxt-route-meta/compare/v2.0.0...v2.0.1) (2021-05-04)
+
+
+### Bug Fixes
+
+* update dependency fs-extra to v10 ([#39](https://github.com/dword-design/nuxt-route-meta/issues/39)) ([e86ff68](https://github.com/dword-design/nuxt-route-meta/commit/e86ff681f83c38dce85ce83c54a50c2b491940db))
+* update dependency with-local-tmp-dir to v4 ([#40](https://github.com/dword-design/nuxt-route-meta/issues/40)) ([0961603](https://github.com/dword-design/nuxt-route-meta/commit/0961603ec054d4d01dba4ff91c5e5883fa5614b6))
+
+# [2.0.0](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.16...v2.0.0) (2021-05-03)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/base to v8 ([#35](https://github.com/dword-design/nuxt-route-meta/issues/35)) ([2ce3ae1](https://github.com/dword-design/nuxt-route-meta/commit/2ce3ae1631b2ac5cce3e84dfa0d82b963fa902ee))
+
+
+### BREAKING CHANGES
+
+* require Node.js >= 12
+
+Co-authored-by: Renovate Bot <bot@renovateapp.com>
+Co-authored-by: Sebastian Landwehr <info@dword-design.de>
+Co-authored-by: GitHub Actions <actions@github.com>
+
+## [1.0.16](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.15...v1.0.16) (2021-04-26)
+
+
+### Bug Fixes
+
+* update dependency with-local-tmp-dir to v3 ([#32](https://github.com/dword-design/nuxt-route-meta/issues/32)) ([01e28f3](https://github.com/dword-design/nuxt-route-meta/commit/01e28f3b4fec7734e267b9c1965692e578c0a2f0))
+
+## [1.0.15](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.14...v1.0.15) (2021-04-20)
+
+
+### Bug Fixes
+
+* updated package.json[keywords] ([#31](https://github.com/dword-design/nuxt-route-meta/issues/31)) ([f3220fa](https://github.com/dword-design/nuxt-route-meta/commit/f3220fada6cfdca6aff72f9bab19d64ad515b43f))
+
+## [1.0.14](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.13...v1.0.14) (2021-04-12)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#25](https://github.com/dword-design/nuxt-route-meta/issues/25)) ([4d04178](https://github.com/dword-design/nuxt-route-meta/commit/4d04178b9fe69034ef46f0dda959ec1bb53f224f))
+
+## [1.0.13](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.12...v1.0.13) (2021-04-09)
+
+
+### Bug Fixes
+
+* update readme ([4163f05](https://github.com/dword-design/nuxt-route-meta/commit/4163f05d8f7c2159a683817b9ce8b3fc2384171d))
+* use nuxt babel config ([#23](https://github.com/dword-design/nuxt-route-meta/issues/23)) ([ca3bf0a](https://github.com/dword-design/nuxt-route-meta/commit/ca3bf0a4770c1012f9875ec22f4b87e741382221))
+
 ## [1.0.12](https://github.com/dword-design/nuxt-route-meta/compare/v1.0.11...v1.0.12) (2021-04-05)
 
 
