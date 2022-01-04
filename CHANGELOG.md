@@ -1,3 +1,10 @@
+## [2.3.3](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.2...v2.3.3) (2022-01-04)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#83](https://github.com/dword-design/nuxt-route-meta/issues/83)) ([d410f67](https://github.com/dword-design/nuxt-route-meta/commit/d410f67af5207f81d761ad363e20d594b593af43))
+
 ## [2.3.2](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.1...v2.3.2) (2021-09-02)
 
 
