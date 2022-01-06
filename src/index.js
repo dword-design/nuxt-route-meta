@@ -2,7 +2,6 @@ import * as babel from '@babel/core'
 import traverse from '@babel/traverse'
 import {
   filter,
-  forEach,
   fromPairs,
   keys,
   map,
@@ -140,7 +139,14 @@ export default function () {
       ...data.meta,
     }
   }
-  this.extendRoutes(routes =>
-    forEach(routes, route => (route.meta = route.component |> extractMeta))
-  )
+
+  const parseRoutes = routes => {
+    for (const route of routes) {
+      route.meta = route.component |> extractMeta
+      if (route.children !== undefined) {
+        parseRoutes(route.children)
+      }
+    }
+  }
+  this.extendRoutes(parseRoutes)
 }

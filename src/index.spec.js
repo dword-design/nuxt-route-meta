@@ -231,6 +231,47 @@ export default {
       `,
     },
   },
+  'multiple routes': {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes => {
+            expect(routes[0].path).toEqual('/bar')
+            expect(routes[0].meta).toEqual({ bar: true })
+            expect(routes[1].path).toEqual('/foo')
+            expect(routes[1].meta).toEqual({ foo: true })
+          })
+        }
+      `,
+      pages: {
+        'bar.vue': endent`
+          <script>
+          export default {
+            meta: {
+              bar: true,
+            },
+            render: () => <div />
+          }
+          </script>
+
+        `,
+        'foo.vue': endent`
+          <script>
+          export default {
+            meta: {
+              foo: true,
+            },
+            render: () => <div />
+          }
+          </script>
+
+        `,
+      },
+    },
+  },
   'options api': {
     config: {
       modules: ['~/../src', '~/modules/module'],
@@ -343,32 +384,85 @@ export default {
       `,
     },
   },
-  subroute: {
+  subroutes: {
     config: {
       modules: ['~/../src', '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
         export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].path === '/foo' && routes[0].meta.foo).toEqual(true)
-          )
+          this.extendRoutes(routes => {
+            expect(routes[0].path).toEqual('/foo')
+            expect(routes[0].meta).toEqual({ foo: true })
+            expect(routes[0].children[0].path).toEqual('')
+            expect(routes[0].children[0].meta).toEqual({ bar: true })
+            expect(routes[0].children[1].path).toEqual('bar')
+            expect(routes[0].children[1].meta).toEqual({ baz: true })
+            expect(routes[0].children[1].children[0].path).toEqual('')
+            expect(routes[0].children[1].children[0].meta).toEqual({ test: true })
+          })
         }
       `,
-      'pages/foo/index.vue': endent`
-        <template>
-          <div />
-        </template>
+      pages: {
+        foo: {
+          'bar.vue': endent`
+            <template>
+              <div />
+            </template>
 
-        <script>
-        export default {
-          meta: {
-            foo: true,
-          },
-        }
-        </script>
+            <script>
+            export default {
+              meta: {
+                baz: true,
+              },
+            }
+            </script>
 
-      `,
+          `,
+          'bar/index.vue': endent`
+            <template>
+              <div />
+            </template>
+
+            <script>
+            export default {
+              meta: {
+                test: true,
+              },
+            }
+            </script>
+
+          `,
+          'index.vue': endent`
+            <template>
+              <div />
+            </template>
+
+            <script>
+            export default {
+              meta: {
+                bar: true,
+              },
+            }
+            </script>
+
+          `,
+        },
+        'foo.vue': endent`
+          <template>
+            <div />
+          </template>
+
+          <script>
+          export default {
+            meta: {
+              foo: true,
+            },
+          }
+          </script>
+          
+        `,
+      },
     },
   },
   'typescript: class api': {
