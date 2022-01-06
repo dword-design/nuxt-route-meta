@@ -1,3 +1,10 @@
+## [2.3.4](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.3...v2.3.4) (2022-01-06)
+
+
+### Bug Fixes
+
+* support subroutes ([#85](https://github.com/dword-design/nuxt-route-meta/issues/85)) ([b773ebf](https://github.com/dword-design/nuxt-route-meta/commit/b773ebfc5175436d5a488cd1c31230255d6442d2))
+
 ## [2.3.3](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.2...v2.3.3) (2022-01-04)
 
 
