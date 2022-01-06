@@ -343,6 +343,34 @@ export default {
       `,
     },
   },
+  subroute: {
+    config: {
+      modules: ['~/../src', '~/modules/module'],
+    },
+    files: {
+      'modules/module.js': endent`
+        export default function () {
+          this.extendRoutes(routes =>
+            expect(routes[0].path === '/foo' && routes[0].meta.foo).toEqual(true)
+          )
+        }
+      `,
+      'pages/foo/index.vue': endent`
+        <template>
+          <div />
+        </template>
+
+        <script>
+        export default {
+          meta: {
+            foo: true,
+          },
+        }
+        </script>
+
+      `,
+    },
+  },
   'typescript: class api': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
