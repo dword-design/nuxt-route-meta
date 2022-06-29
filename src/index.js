@@ -136,7 +136,7 @@ export default function () {
 
     return {
       ...(data |> omit(['meta', ...(predefinedProperties |> keys)])),
-      ...data.meta,
+      ...data?.meta,
     }
   }
 
