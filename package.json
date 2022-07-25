@@ -63,7 +63,7 @@
     "vue-property-decorator": "^9.1.2",
     "with-local-tmp-dir": "^4.0.0"
   },
-  "peerDependencies": {
+  "optionalDependencies": {
     "typescript": "~4.2"
   },
   "engines": {
