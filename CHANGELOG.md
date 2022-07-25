@@ -1,3 +1,10 @@
+## [2.3.5](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.4...v2.3.5) (2022-07-25)
+
+
+### Bug Fixes
+
+* make typescript a direct dependency ([#109](https://github.com/dword-design/nuxt-route-meta/issues/109)) ([764fbe5](https://github.com/dword-design/nuxt-route-meta/commit/764fbe506741fe18484220e209d93bad7235204f))
+
 ## [2.3.4](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.3...v2.3.4) (2022-01-06)
 
 
