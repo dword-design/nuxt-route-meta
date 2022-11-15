@@ -52,7 +52,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "devDependencies": {
-    "@dword-design/base": "^8.0.0",
+    "@dword-design/base": "^9.0.0",
     "@nuxt/typescript-build": "^2.1.0",
     "@nuxtjs/composition-api": "^0.27.0",
     "depcheck-package-name": "^2.0.0",
