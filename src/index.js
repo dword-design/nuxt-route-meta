@@ -10,8 +10,11 @@ import {
   some,
 } from '@dword-design/functions'
 import astToLiteral from 'ast-to-literal'
-import { readFileSync } from 'fs-extra'
+import fs from 'fs-extra'
 import P from 'path'
+import tsAstToLiteral from 'ts-ast-to-literal'
+import ts from 'typescript'
+import vueTemplateCompiler from 'vue-template-compiler'
 
 const predefinedProperties = {
   components: true,
@@ -25,25 +28,17 @@ const predefinedProperties = {
 
 export default function () {
   const extractMeta = filename => {
-    const fileContent = readFileSync(filename, 'utf8')
+    const fileContent = fs.readFileSync(filename, 'utf8')
     let data = {}
 
     const Component =
       P.extname(filename) === '.vue'
-        ? (() => {
-            const vueTemplateCompiler = require('vue-template-compiler')
-
-            return vueTemplateCompiler.parseComponent(fileContent)
-          })()
+        ? vueTemplateCompiler.parseComponent(fileContent)
         : { script: { content: fileContent, lang: 'js' } }
 
     const scriptContent = Component.script?.content
     if (scriptContent) {
       if (Component.script.lang === 'ts') {
-        const ts = require('typescript')
-
-        const tsAstToLiteral = require('ts-ast-to-literal')
-
         const rootNode = ts.createSourceFile(
           'x.ts',
           scriptContent,
@@ -108,7 +103,7 @@ export default function () {
               extends: '@nuxt/babel-preset-app',
             }),
         })
-        traverse(ast, {
+        traverse.default(ast, {
           ClassDeclaration: path => {
             if (path.node.superClass.name === 'Vue') {
               data =

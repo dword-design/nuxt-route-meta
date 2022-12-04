@@ -4,6 +4,8 @@ import { Builder, Nuxt } from 'nuxt'
 import outputFiles from 'output-files'
 import withLocalTmpDir from 'with-local-tmp-dir'
 
+import self from './index.js'
+
 const tsconfig = {
   compilerOptions: {
     allowJs: true,
@@ -31,7 +33,6 @@ const runTest = config => () =>
     await outputFiles(config.files)
 
     const nuxt = new Nuxt({
-      createRequire: 'native',
       dev: false,
       ...config.config,
     })
@@ -45,7 +46,7 @@ const runTest = config => () =>
 export default {
   'additional properties': {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -68,7 +69,7 @@ export default {
   },
   array: {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -98,7 +99,7 @@ export default {
           babelrc: true,
         },
       },
-      modules: ['~/../src'],
+      modules: [self],
     },
     files: {
       '.babelrc.json': JSON.stringify({
@@ -121,7 +122,7 @@ export default {
   },
   'babel syntax without config': {
     config: {
-      modules: ['~/../src'],
+      modules: [self],
     },
     error:
       "Support for the experimental syntax 'pipelineOperator' isn't currently enabled",
@@ -138,7 +139,7 @@ export default {
   },
   false: {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -161,7 +162,7 @@ export default {
   'js composition api': {
     config: {
       buildModules: [packageName`@nuxtjs/composition-api/module`],
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -187,7 +188,7 @@ export default {
   },
   'js file': {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -208,7 +209,7 @@ export default {
   },
   meta: {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -233,7 +234,7 @@ export default {
   },
   'multiple routes': {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -274,7 +275,7 @@ export default {
   },
   'options api': {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -307,7 +308,7 @@ export default {
   },
   'predefined properties': {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -343,7 +344,7 @@ export default {
   },
   'property decorator': {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -371,7 +372,7 @@ export default {
   },
   'spread operator': {
     config: {
-      modules: ['~/../src'],
+      modules: [self],
     },
     files: {
       'pages/index.vue': endent`
@@ -386,7 +387,7 @@ export default {
   },
   subroutes: {
     config: {
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -468,7 +469,7 @@ export default {
   'typescript: class api': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -500,7 +501,7 @@ export default {
   'typescript: class api plain object inside': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
-      modules: ['~/../src'],
+      modules: [self],
     },
     error: 'Nuxt build error',
     files: {
@@ -526,7 +527,7 @@ export default {
   'typescript: class api with component name': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -561,7 +562,7 @@ export default {
         packageName`@nuxtjs/composition-api/module`,
         packageName`@nuxt/typescript-build`,
       ],
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -593,7 +594,7 @@ export default {
   'typescript: object': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -622,7 +623,7 @@ export default {
   'typescript: options api': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     error: 'Nuxt build error',
     files: {
@@ -655,7 +656,7 @@ export default {
   'typescript: plain object': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`
@@ -689,7 +690,7 @@ export default {
   'typescript: property decorator': {
     config: {
       buildModules: [packageName`@nuxt/typescript-build`],
-      modules: ['~/../src', '~/modules/module'],
+      modules: [self, '~/modules/module'],
     },
     files: {
       'modules/module.js': endent`

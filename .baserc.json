@@ -1,4 +1,5 @@
 {
+  "name": "@dword-design/node",
   "seeAlso": [
     { "repository": "nuxt-mail", "description": "Adds email sending capability to a Nuxt.js app. Adds a server route, an injected variable, and uses nodemailer to send emails." },
     { "repository": "nuxt-modernizr", "description": "Adds a Modernizr build to your Nuxt.js app." },
