@@ -15597,10 +15597,10 @@ trim-newlines@^3.0.0:
   resolved "https://registry.yarnpkg.com/true-case-path/-/true-case-path-2.2.1.tgz#c5bf04a5bbec3fd118be4084461b3a27c4d796bf"
   integrity sha512-0z3j8R7MCjy10kc/g+qg7Ln3alJTodw9aDuVWZa3uiWqfuBMKeAeP2ocWcxoyM3D73yz3Jt/Pu4qPr4wHSdB/Q==
 
-ts-ast-to-literal@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ts-ast-to-literal/-/ts-ast-to-literal-2.0.0.tgz#f0ea5f9188877653c0695c8f22a46a18b97f227e"
-  integrity sha512-+a25j8FGuuefXMnS1i2xKs6/IA4cgFfw+JpGhU2Px7n0OpOpIDzweK+TzQri1El9WNoWupj2SoFpJSJDJMl9bA==
+ts-ast-to-literal@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/ts-ast-to-literal/-/ts-ast-to-literal-3.0.0.tgz#8c57ab805302a59d1c7cbb049f7e193b196bcd8e"
+  integrity sha512-1AvpCVNm67ambkbM4yrpsJmd3en+3XK6pAP7BJUm3fmx4Ue+xJIe4Vcgmfoshd09nd2vMvJTghsOU3Saf3K8Vg==
   dependencies:
     "@dword-design/functions" "^4.0.6"
 

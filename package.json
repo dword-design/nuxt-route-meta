@@ -49,7 +49,7 @@
     "@dword-design/functions": "^4.0.0",
     "ast-to-literal": "^0.0.5",
     "fs-extra": "^11.1.0",
-    "ts-ast-to-literal": "^2.0.0",
+    "ts-ast-to-literal": "^3.0.0",
     "typescript": "~4.2",
     "vue-template-compiler": "^2.6.11"
   },
