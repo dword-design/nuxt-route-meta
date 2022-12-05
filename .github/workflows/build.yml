@@ -65,8 +65,6 @@ jobs:
             os: ubuntu-latest
           - node: 16
             os: ubuntu-latest
-          - node: 18
-            os: ubuntu-latest
           - node: 16
             os: macos-latest
           - node: 16
