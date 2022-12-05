@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.6...v3.0.0) (2022-12-05)
+
+
+### Bug Fixes
+
+* drop node 12 support, move to esm ([#112](https://github.com/dword-design/nuxt-route-meta/issues/112)) ([6109500](https://github.com/dword-design/nuxt-route-meta/commit/61095004d1452966d58978bb28fcd3db79ee22fa))
+
+
+### BREAKING CHANGES
+
+* drop node 12 support, move to esm
+
 ## [2.3.6](https://github.com/dword-design/nuxt-route-meta/compare/v2.3.5...v2.3.6) (2022-10-13)
 
 
