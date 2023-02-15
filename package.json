@@ -64,7 +64,7 @@
     "output-files": "^2.0.0",
     "vue-class-component": "^7.2.6",
     "vue-property-decorator": "^9.1.2",
-    "with-local-tmp-dir": "^4.0.0"
+    "with-local-tmp-dir": "^5.0.0"
   },
   "engines": {
     "node": ">=14"
