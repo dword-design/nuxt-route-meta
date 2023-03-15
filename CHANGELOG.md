@@ -1,3 +1,10 @@
+## [3.0.2](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.1...v3.0.2) (2023-03-15)
+
+
+### Bug Fixes
+
+* update dependency @babel/core to v7.21.3 ([eea4f1a](https://github.com/dword-design/nuxt-route-meta/commit/eea4f1a206143fbddb4d7a14b2eae667e9cabf79))
+
 ## [3.0.1](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.0...v3.0.1) (2023-02-15)
 
 
