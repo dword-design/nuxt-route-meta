@@ -461,7 +461,7 @@ export default {
             },
           }
           </script>
-          
+
         `,
       },
     },
@@ -576,7 +576,7 @@ export default {
         <template>
           <div />
         </template>
-        
+
         <script lang="ts">
         import { defineComponent } from '${packageName`@nuxtjs/composition-api`}'
 
