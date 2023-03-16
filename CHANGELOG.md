@@ -1,3 +1,11 @@
+## [3.0.3](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.2...v3.0.3) (2023-03-16)
+
+
+### Bug Fixes
+
+* update dependency @babel/traverse to v7.21.3 ([fe1ab32](https://github.com/dword-design/nuxt-route-meta/commit/fe1ab32b8b1f58c0dc1d3e16a6cf74a114ba7a8f))
+* update dependency output-files to v2.0.12 ([aa57262](https://github.com/dword-design/nuxt-route-meta/commit/aa57262887aabb1c65cbb0b18b50e2bdb9eb8a9f))
+
 ## [3.0.2](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.1...v3.0.2) (2023-03-15)
 
 
