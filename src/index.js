@@ -42,7 +42,7 @@ export default function () {
         const rootNode = ts.createSourceFile(
           'x.ts',
           scriptContent,
-          ts.ScriptTarget.Latest
+          ts.ScriptTarget.Latest,
         )
         ts.forEachChild(rootNode, node => {
           switch (node.kind) {
@@ -67,17 +67,17 @@ export default function () {
               if (
                 (node.modifiers || []
                   |> some(
-                    modifier => modifier.kind === ts.SyntaxKind.ExportKeyword
+                    modifier => modifier.kind === ts.SyntaxKind.ExportKeyword,
                   )) &&
                 (node.modifiers || []
                   |> some(
-                    modifier => modifier.kind === ts.SyntaxKind.DefaultKeyword
+                    modifier => modifier.kind === ts.SyntaxKind.DefaultKeyword,
                   )) &&
                 (node.heritageClauses || []
                   |> some(
                     clause =>
                       clause.types
-                      |> some(type => type.expression.escapedText === 'Vue')
+                      |> some(type => type.expression.escapedText === 'Vue'),
                   ))
               ) {
                 data =

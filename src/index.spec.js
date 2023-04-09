@@ -103,12 +103,7 @@ export default {
     },
     files: {
       '.babelrc.json': JSON.stringify({
-        plugins: [
-          [
-            packageName`@babel/plugin-proposal-pipeline-operator`,
-            { proposal: 'fsharp' },
-          ],
-        ],
+        extends: '@dword-design/babel-config',
       }),
       'pages/index.vue': endent`
         <script>
@@ -116,7 +111,6 @@ export default {
           foo: 1 |> x => x * 2,
         }
         </script>
-
       `,
     },
   },
@@ -133,7 +127,6 @@ export default {
           foo: 1 |> x => x * 2,
         }
         </script>
-
       `,
     },
   },
@@ -203,7 +196,6 @@ export default {
           foo: true,
           render: () => <div />
         }
-
       `,
     },
   },
@@ -228,7 +220,6 @@ export default {
           render: () => <div />
         }
         </script>
-
       `,
     },
   },
@@ -268,7 +259,6 @@ export default {
             render: () => <div />
           }
           </script>
-
         `,
       },
     },
@@ -338,7 +328,6 @@ export default {
           },
         }
         </script>
-
       `,
     },
   },
@@ -381,7 +370,6 @@ export default {
           ...{ foo: 'bar' },
         }
         </script>
-
       `,
     },
   },
@@ -446,7 +434,6 @@ export default {
               },
             }
             </script>
-
           `,
         },
         'foo.vue': endent`
@@ -461,7 +448,6 @@ export default {
             },
           }
           </script>
-          
         `,
       },
     },
@@ -493,7 +479,6 @@ export default {
           }
         }
         </script>
-
       `,
       'tsconfig.json': JSON.stringify(tsconfig),
     },
@@ -519,7 +504,6 @@ export default {
           }
         }
         </script>
-
       `,
       'tsconfig.json': JSON.stringify(tsconfig),
     },
@@ -551,7 +535,6 @@ export default {
           }
         }
         </script>
-
       `,
       'tsconfig.json': JSON.stringify(tsconfig),
     },
@@ -576,7 +559,7 @@ export default {
         <template>
           <div />
         </template>
-        
+
         <script lang="ts">
         import { defineComponent } from '${packageName`@nuxtjs/composition-api`}'
 
@@ -586,7 +569,6 @@ export default {
           }
         })
         </script>
-
       `,
       'tsconfig.json': JSON.stringify(tsconfig),
     },
@@ -615,7 +597,6 @@ export default {
           foo: true,
         }
         </script>
-
       `,
       'tsconfig.json': JSON.stringify(tsconfig),
     },
@@ -648,7 +629,6 @@ export default {
           }
         })
         </script>
-
       `,
       'tsconfig.json': JSON.stringify(tsconfig),
     },
@@ -682,7 +662,6 @@ export default {
           },
         }
         </script>
-
       `,
       'tsconfig.json': JSON.stringify(tsconfig),
     },
@@ -715,7 +694,6 @@ export default {
           }
         }
         </script>
-
       `,
       'tsconfig.json': JSON.stringify(tsconfig),
     },
