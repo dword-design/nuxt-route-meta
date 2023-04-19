@@ -1,3 +1,10 @@
+## [3.0.6](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.5...v3.0.6) (2023-04-19)
+
+
+### Bug Fixes
+
+* update dependency @dword-design/functions to v4.1.7 ([846704e](https://github.com/dword-design/nuxt-route-meta/commit/846704eb6399871a06078bdb49e02ee3383eb963))
+
 ## [3.0.5](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.4...v3.0.5) (2023-04-19)
 
 

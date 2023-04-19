@@ -1,6 +1,6 @@
 {
   "name": "nuxt-route-meta",
-  "version": "3.0.5",
+  "version": "3.0.6",
   "description": "Adds Nuxt page data to route meta at build time. Also supports TypeScript.",
   "keywords": [
     "auth",
