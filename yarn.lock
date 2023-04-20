@@ -15666,9 +15666,9 @@ trim-newlines@^3.0.0:
   integrity sha512-0z3j8R7MCjy10kc/g+qg7Ln3alJTodw9aDuVWZa3uiWqfuBMKeAeP2ocWcxoyM3D73yz3Jt/Pu4qPr4wHSdB/Q==
 
 ts-ast-to-literal@^3.0.10:
-  version "3.0.11"
-  resolved "https://registry.yarnpkg.com/ts-ast-to-literal/-/ts-ast-to-literal-3.0.11.tgz#7cdb17627177d80f2f1d9cb9ebf292c31c28a88e"
-  integrity sha512-yrz5LPbUoqu5BLtvFxYXBd4+3+8Xt5yPXL8EE2GI5/FIxqfGtcfuPus5ETsFlWDvvOvrAh5wYgLtdmDGeT1vAQ==
+  version "3.0.12"
+  resolved "https://registry.yarnpkg.com/ts-ast-to-literal/-/ts-ast-to-literal-3.0.12.tgz#b35cf7eebde795b278282d22960daad449fd5992"
+  integrity sha512-T+4ea96SX6WTYemeUNy+rYMrEpOkJwYFGKMbs5768yHSx+EI+PW5KqhZB/Q2+UM8RD9RrGe+zt40vAMLaFPYNA==
   dependencies:
     "@dword-design/functions" "^4.0.6"
 
