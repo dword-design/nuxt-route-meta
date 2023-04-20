@@ -1,3 +1,11 @@
+## [3.0.7](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.6...v3.0.7) (2023-04-20)
+
+
+### Bug Fixes
+
+* update dependency output-files to v2.0.27 ([4472461](https://github.com/dword-design/nuxt-route-meta/commit/44724610264301e12bc3b3db405d30394c777c73))
+* update dependency ts-ast-to-literal to v3.0.12 ([42ec55e](https://github.com/dword-design/nuxt-route-meta/commit/42ec55efbcf7a1fdb9a5ce5dea150440f1c3a9e3))
+
 ## [3.0.6](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.5...v3.0.6) (2023-04-19)
 
 
