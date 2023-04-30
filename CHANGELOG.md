@@ -1,3 +1,10 @@
+## [3.0.8](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.7...v3.0.8) (2023-04-30)
+
+
+### Bug Fixes
+
+* fix template compiler import ([#140](https://github.com/dword-design/nuxt-route-meta/issues/140)) ([6285ff1](https://github.com/dword-design/nuxt-route-meta/commit/6285ff17abe095b5849c89e12b73bcd2e287948f))
+
 ## [3.0.7](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.6...v3.0.7) (2023-04-20)
 
 
