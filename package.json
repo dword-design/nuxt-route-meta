@@ -47,7 +47,7 @@
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@babel/traverse": "^7.13.13",
-    "@dword-design/functions": "^4.0.0",
+    "@dword-design/functions": "^5.0.0",
     "ast-to-literal": "^0.0.5",
     "fs-extra": "^11.1.0",
     "ts-ast-to-literal": "^3.0.10",
