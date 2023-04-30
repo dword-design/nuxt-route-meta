@@ -1,3 +1,10 @@
+## [3.0.9](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.8...v3.0.9) (2023-04-30)
+
+
+### Bug Fixes
+
+* trigger release ([afd63f9](https://github.com/dword-design/nuxt-route-meta/commit/afd63f9708f7499935b6fe16f60bbb5a51897751))
+
 ## [3.0.8](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.7...v3.0.8) (2023-04-30)
 
 
