@@ -14,7 +14,7 @@ import fs from 'fs-extra'
 import P from 'path'
 import tsAstToLiteral from 'ts-ast-to-literal'
 import ts from 'typescript'
-import vueTemplateCompiler from 'vue-template-compiler'
+import { parseComponent } from 'vue-template-compiler'
 
 const predefinedProperties = {
   components: true,
@@ -33,7 +33,7 @@ export default function () {
 
     const Component =
       P.extname(filename) === '.vue'
-        ? vueTemplateCompiler.parseComponent(fileContent)
+        ? parseComponent(fileContent)
         : { script: { content: fileContent, lang: 'js' } }
 
     const scriptContent = Component.script?.content
