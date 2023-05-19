@@ -1479,10 +1479,10 @@
     fs-extra "^11.0.0"
     micromatch "^4.0.2"
 
-"@dword-design/base@^9.1.7":
-  version "9.6.4"
-  resolved "https://registry.yarnpkg.com/@dword-design/base/-/base-9.6.4.tgz#cc7c459889fd7d2760479f756a90dfa00e16ec81"
-  integrity sha512-zaEwIO1si3wSYIWA55ci1MRu/4svNs4W21MpJp+VNrH/pGUes1ut0/S27CLZ1bKFfWkprhB7Cm1QlWpOPl+Hlg==
+"@dword-design/base@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@dword-design/base/-/base-10.0.0.tgz#e8352bf1660c82616f9553a445d4b71348219ee3"
+  integrity sha512-DxLFGsBRty7RHN5S8WOV2YHsYgAFDnoz/Bo+doo4shELAPZrWVWgWDuPvfRBPHzeNjcmJF55WxcBrjpV2/NuIQ==
   dependencies:
     "@commitlint/cli" "^17.4.0"
     "@commitlint/config-conventional" "^17.4.0"
@@ -10724,14 +10724,7 @@ load-json-file@^4.0.0:
     pify "^3.0.0"
     strip-bom "^3.0.0"
 
-load-pkg@^4.0.0:
-  version "4.0.0"
-  resolved "https://registry.yarnpkg.com/load-pkg/-/load-pkg-4.0.0.tgz#f80a29aec2f6d02aadde714099fda4eea1b611f1"
-  integrity sha512-xS6uYdbUzHbwO5bExhtM8RsU6Z/fVEfZE4uZpWQOwVygLSUfXz7J97nGzJfZ+FFCZc0Weabn/wA3y1k9Q7Y4mw==
-  dependencies:
-    find-pkg "^2.0.0"
-
-"load-pkg@npm:@dword-design/load-pkg":
+load-pkg@^4.0.0, "load-pkg@npm:@dword-design/load-pkg":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@dword-design/load-pkg/-/load-pkg-4.0.0.tgz#201f76adeb44c64ed22d789591ab740573fe0a5b"
   integrity sha512-lZxKRusgIqSg2y4jLzZzMPWyhrGPGke3YYmAxj4SoJeUGV4CmvYyhJkJnfA7Yaov7GMXZi64nlhx8D809VDazg==
