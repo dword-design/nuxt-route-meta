@@ -57,7 +57,7 @@
   "devDependencies": {
     "@dword-design/base": "^9.1.7",
     "@nuxt/typescript-build": "^2.1.0",
-    "@nuxtjs/composition-api": "^0.27.0",
+    "@nuxtjs/composition-api": "^0.33.0",
     "depcheck-package-name": "^3.0.0",
     "nuxt": "^2.15.3",
     "nuxt-property-decorator": "^2.9.1",
