@@ -102,126 +102,40 @@ export default {
 
 That's it! Now you can access the meta data in `route.meta` from anywhere as you know it from [vue-router](https://www.npmjs.com/package/vue-router). The module takes all properties that all properties that are not functions, and the meta property itself is merged into the result. So `route.meta` from the example above is `{ auth: true, theme: 'water' }`.
 
-Here is an example to use it inside `this.extendRoutes` in a module:
+Here is an example to use it inside `nuxt.hook('pages:extend')` in a module:
 
 ```js
-export default function () {
-  this.extendRoutes(routes =>
-    routes.forEach(route => {
+export default defineNuxtModule((options, nuxt) =>
+  nuxt.hook('pages:extend', routes =>
+    for (const route of routes) {
       if (route.meta.auth) {
         // do something with auth routes
       }
-    })
+    }
   )
-}
-```
-
-## TypeScript
-
-The module has built-in support for TypeScript. Requirement is that the TypeScript module is installed as described in [the Nuxt TypeScript docs](https://typescript.nuxtjs.org/guide/setup).
-
-```js
-<script lang="ts">
-import Vue from 'vue'
-
-export default class MyComponent extends Vue {
-  meta = {
-    foo: true,
-  },
-}
-</script>
-```
-
-## Supported APIs
-
-### Plain object
-
-```js
-<script>
-export default {
-  auth: true,
-  meta: {
-    theme: 'water',
-  },
-}
-</script>
-```
-
-This API does not make much sense with TypeScript because you do not have type information in the components.
-
-### Options API
-
-```js
-<script>
-import Vue from 'vue'
-
-export default class MyComponent extends Vue {
-  meta = {
-    foo: true,
-  },
-}
-</script>
-```
-
-As of writing this, Nuxt with TypeScript does not seem to support the options API with Nuxt-specific properties like `asyncData`, `fetch`, `meta`, etc. In case this changes, open up an issue.
-
-### Class API
-
-```js
-<script>
-import Vue from 'vue'
-
-export default class MyComponent extends Vue {
-  meta = {
-    foo: true,
-  },
-}
-</script>
-```
-
-### Property decorator
-
-Plain JavaScript: Install [nuxt-property-decorator](https://github.com/nuxt-community/nuxt-property-decorator).
-
-```js
-<script>
-import { Vue, Component } from 'nuxt-property-decorator'
-
-@Component
-export default class MyComponent extends Vue {
-  meta = {
-    foo: true,
-  },
-}
-</script>
-```
-
-TypeScript:
-
-```js
-<script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
-
-@Component
-export default class MyComponent extends Vue {
-  meta = {
-    foo: true,
-  },
-}
-</script>
+)
 ```
 
 ## Composition API
 
-This package ships with support for the Vue composition API. When setting up your nuxt project, make sure to follow the [`@nuxtjs/composition-api` guide](https://composition-api.nuxtjs.org/getting-started/setup) closely.
+```js
+<script setup>
+definePageMeta({
+  auth: true,
+})
+</script>
+```
+
+## TypeScript
+
+The module has built-in support for TypeScript.
 
 ```js
-<script>
-import { defineComponent } from '@nuxtjs/composition-api'
-
+<script lang="ts">
 export default defineComponent({
+  auth: true,
   meta: {
-    auth: true,
+    theme: 'water',
   },
 })
 </script>
