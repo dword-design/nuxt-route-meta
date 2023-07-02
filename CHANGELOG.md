@@ -1,3 +1,15 @@
+# [4.0.0](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.10...v4.0.0) (2023-07-02)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#150](https://github.com/dword-design/nuxt-route-meta/issues/150)) ([403d93d](https://github.com/dword-design/nuxt-route-meta/commit/403d93d6667d9975ea69a9007783ee0d715289d4))
+
+
+### BREAKING CHANGES
+
+* drop node 14, migrate to nuxt 3
+
 ## [3.0.10](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.9...v3.0.10) (2023-04-30)
 
 
