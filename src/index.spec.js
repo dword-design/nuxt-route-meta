@@ -1,428 +1,203 @@
-import { endent, mapValues } from '@dword-design/functions'
+import { endent } from '@dword-design/functions'
+import tester from '@dword-design/tester'
+import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
 import packageName from 'depcheck-package-name'
-import { Builder, Nuxt } from 'nuxt'
+import { execaCommand } from 'execa'
 import outputFiles from 'output-files'
-import withLocalTmpDir from 'with-local-tmp-dir'
 
-import self from './index.js'
+export default tester(
+  {
+    'additional properties': async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
 
-const tsconfig = {
-  compilerOptions: {
-    allowJs: true,
-    baseUrl: '.',
-    esModuleInterop: true,
-    experimentalDecorators: true,
-    lib: ['ESNext', 'ESNext.AsyncIterable', 'DOM'],
-    module: 'ESNext',
-    moduleResolution: 'Node',
-    noEmit: true,
-    paths: {
-      '@/*': ['./*'],
-      '~/*': ['./*'],
-    },
-    sourceMap: true,
-    strict: true,
-    target: 'ES2018',
-    types: ['@types/node', '@nuxt/types'],
-  },
-  exclude: ['node_modules'],
-}
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta.foo).toEqual(true)),
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
 
-const runTest = config => () =>
-  withLocalTmpDir(async () => {
-    await outputFiles(config.files)
-
-    const nuxt = new Nuxt({
-      dev: false,
-      ...config.config,
-    })
-    if (config.error) {
-      await expect(new Builder(nuxt).build()).rejects.toThrow(config.error)
-    } else {
-      await new Builder(nuxt).build()
-    }
-  })
-
-export default {
-  'additional properties': {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <script>
-        export default {
-          foo: true,
-          render: () => <div />
-        }
-        </script>
-
-      `,
-    },
-  },
-  array: {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual([1, 2])
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <script>
-        export default {
-          meta: {
-            foo: [1, 2],
-          },
-          render: () => <div />
-        }
-        </script>
-
-      `,
-    },
-  },
-  'babel syntax with config': {
-    config: {
-      build: {
-        babel: {
-          babelrc: true,
-        },
-      },
-      modules: [self],
-    },
-    files: {
-      '.babelrc.json': JSON.stringify({
-        extends: '@dword-design/babel-config',
-      }),
-      'pages/index.vue': endent`
-        <script>
-        export default {
-          foo: 1 |> x => x * 2,
-        }
-        </script>
-      `,
-    },
-  },
-  'babel syntax without config': {
-    config: {
-      modules: [self],
-    },
-    error:
-      "Support for the experimental syntax 'pipelineOperator' isn't currently enabled",
-    files: {
-      'pages/index.vue': endent`
-        <script>
-        export default {
-          foo: 1 |> x => x * 2,
-        }
-        </script>
-      `,
-    },
-  },
-  false: {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(false)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <script>
-        export default {
-          foo: false,
-          render: () => <div />
-        }
-        </script>
-      `,
-    },
-  },
-  'js composition api': {
-    config: {
-      buildModules: [packageName`@nuxtjs/composition-api/module`],
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <script>
-        import { defineComponent } from '${packageName`@nuxtjs/composition-api`}'
-
-        export default defineComponent({
-          meta: {
+          <script>
+          export default {
             foo: true,
-          },
-          setup() {}
-        })
-        </script>
-      `,
+          }
+          </script>
+        `,
+      })
+      await execaCommand('nuxt build')
     },
-  },
-  'js file': {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.js': endent`
-        export default {
-          foo: true,
-          render: () => <div />
-        }
-      `,
-    },
-  },
-  meta: {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <script>
-        export default {
-          meta: {
-            foo: true,
-          },
-          render: () => <div />
-        }
-        </script>
-      `,
-    },
-  },
-  'multiple routes': {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes => {
-            expect(routes[0].path).toEqual('/bar')
-            expect(routes[0].meta).toEqual({ bar: true })
-            expect(routes[1].path).toEqual('/foo')
-            expect(routes[1].meta).toEqual({ foo: true })
-          })
-        }
-      `,
-      pages: {
-        'bar.vue': endent`
+    array: async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta).toEqual({ foo: [1, 2] }))
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
           <script>
           export default {
             meta: {
-              bar: true,
+              foo: [1, 2],
             },
-            render: () => <div />
           }
           </script>
 
         `,
-        'foo.vue': endent`
+      })
+      await execaCommand('nuxt build')
+    },
+    babel: async () => {
+      await outputFiles({
+        '.babelrc.json': JSON.stringify({
+          plugins: [
+            [
+              packageName`@babel/plugin-proposal-pipeline-operator`,
+              { proposal: 'fsharp' },
+            ],
+          ],
+        }),
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta).toEqual({ foo: true })),
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
+          <script setup>
+          1 |> x => x * 2
+
+          definePageMeta({
+            foo: true,
+          })
+          </script>
+        `,
+      })
+      await execaCommand('nuxt-babel build')
+    },
+    composition: async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta).toEqual({ foo: true })),
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
+          <script setup>
+          definePageMeta({
+            foo: true,
+          })
+          </script>
+        `,
+      })
+      await execaCommand('nuxt build')
+    },
+    false: async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages.extend', routes => expect(routes[0].meta).toEqual({ foo: false })),
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
           <script>
           export default {
+            foo: false,
+          }
+          </script>
+        `,
+      })
+      await execaCommand('nuxt build')
+    },
+    meta: async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta).toEqual({ foo: true, bar: true })),
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
+          <script>
+          export default {
+            bar: true,
             meta: {
               foo: true,
             },
-            render: () => <div />
           }
           </script>
         `,
-      },
+      })
+      await execaCommand('nuxt build')
     },
-  },
-  'options api': {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes => {
-            expect(routes[0].meta.foo).toEqual(true)
-            expect(routes[0].meta.bar).toEqual(true)
-          })
-        }
-      `,
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
+    'multiple routes': async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
 
-        <script>
-        import Vue from 'vue'
-
-        export default Vue.extend({
-          foo: true,
-          meta: {
-            bar: true,
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => {
+                expect(routes[0].path).toEqual('/bar')
+                expect(routes[0].meta).toEqual({ bar: true })
+                expect(routes[1].path).toEqual('/foo')
+                expect(routes[1].meta).toEqual({ foo: true })
+              }),
+            ],
           }
-        })
-        </script>
-
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
-    },
-  },
-  'predefined properties': {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta).toEqual({})
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <script>
-        export default {
-          computed: {
-            foo: () => {},
-          },
-          components: {
-            Foo: {},
-          },
-          data: () => ({ foo: 'bar' }),
-          methods: {
-            foo: () => {},
-          },
-          mixins: [{}],
-          render: () => <div />,
-          watch: {
-            foo: () => {},
-          },
-        }
-        </script>
-      `,
-    },
-  },
-  'property decorator': {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes => {
-            expect(routes[0].meta.foo).toEqual(true)
-            expect(routes[0].meta.bar).toEqual(true)
-          })
-        }
-      `,
-      'pages/index.vue': endent`
-        <script>
-        import { Component, Vue } from '${packageName`nuxt-property-decorator`}'
-
-        @Component
-        export class Foo extends Vue {
-          foo = true
-          meta = {
-            bar: true,
-          }
-        }
-        </script>
-      `,
-    },
-  },
-  'spread operator': {
-    config: {
-      modules: [self],
-    },
-    files: {
-      'pages/index.vue': endent`
-        <script>
-        export default {
-          ...{ foo: 'bar' },
-        }
-        </script>
-      `,
-    },
-  },
-  subroutes: {
-    config: {
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes => {
-            expect(routes[0].path).toEqual('/foo')
-            expect(routes[0].meta).toEqual({ foo: true })
-            expect(routes[0].children[0].path).toEqual('')
-            expect(routes[0].children[0].meta).toEqual({ bar: true })
-            expect(routes[0].children[1].path).toEqual('bar')
-            expect(routes[0].children[1].meta).toEqual({ baz: true })
-            expect(routes[0].children[1].children[0].path).toEqual('')
-            expect(routes[0].children[1].children[0].meta).toEqual({ test: true })
-          })
-        }
-      `,
-      pages: {
-        foo: {
+        `,
+        pages: {
           'bar.vue': endent`
-            <template>
-              <div />
-            </template>
-
-            <script>
-            export default {
-              meta: {
-                baz: true,
-              },
-            }
-            </script>
-
-          `,
-          'bar/index.vue': endent`
-            <template>
-              <div />
-            </template>
-
-            <script>
-            export default {
-              meta: {
-                test: true,
-              },
-            }
-            </script>
-
-          `,
-          'index.vue': endent`
             <template>
               <div />
             </template>
@@ -435,267 +210,270 @@ export default {
             }
             </script>
           `,
-        },
-        'foo.vue': endent`
-          <template>
-            <div />
-          </template>
+          'foo.vue': endent`
+            <template>
+              <div />
+            </template>
 
+            <script>
+            export default {
+              meta: {
+                foo: true,
+              },
+            }
+            </script>
+          `,
+        },
+      })
+      await execaCommand('nuxt build')
+    },
+    'predefined properties': async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta).toEqual({})),
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
           <script>
           export default {
-            meta: {
-              foo: true,
+            computed: {
+              foo: () => {},
+            },
+            components: {
+              Foo: {},
+            },
+            data: () => ({ foo: 'bar' }),
+            methods: {
+              foo: () => {},
+            },
+            mixins: [{}],
+            render: () => {},
+            watch: {
+              foo: () => {},
             },
           }
           </script>
         `,
-      },
+      })
+      await execaCommand('nuxt build')
     },
-  },
-  'typescript: class api': {
-    config: {
-      buildModules: [packageName`@nuxt/typescript-build`],
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
-
-        <script lang="ts">
-        import Vue from 'vue'
-
-        export default class extends Vue {
-          meta = {
-            foo: true,
+    'spread operator': async () => {
+      await outputFiles({
+        'nuxt.config.js': "export default { modules: ['../src/index.js'] }",
+        'pages/index.vue': endent`
+          <script>
+          export default {
+            ...{ foo: 'bar' },
           }
-        }
-        </script>
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
+          </script>
+        `,
+      })
+      await execaCommand('nuxt build')
     },
-  },
-  'typescript: class api plain object inside': {
-    config: {
-      buildModules: [packageName`@nuxt/typescript-build`],
-      modules: [self],
-    },
-    error: 'Nuxt build error',
-    files: {
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
+    subroutes: async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+          import pick from 'lodash/pick'
+          import P from 'path'
 
-        <script lang="ts">
-        import Vue from 'vue'
-
-        export default class MyComponent extends Vue {
-          meta: {
-            foo: true,
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => {
+                const removePaths = _routes => _routes.map(route => ({
+                  ...route,
+                  file: P.relative(process.cwd(), route.file),
+                  children: removePaths(route.children),
+                }))
+                routes = removePaths(routes)
+      
+                expect(routes).toEqual([
+                  {
+                    children: [
+                      {
+                        children: [
+                          {
+                            children: [],
+                            file: P.join('pages', 'foo', 'bar', 'index.vue'),
+                            meta: { fooBarIndex: true },
+                            name: 'foo-bar',
+                            path: '',
+                          },
+                        ],
+                        file: P.join('pages', 'foo', 'bar.vue'),
+                        meta: { fooBar: true },
+                        path: 'bar',
+                      },
+                      {
+                        children: [],
+                        file: P.join('pages', 'foo', 'index.vue'),
+                        meta: { fooIndex: true },
+                        name: 'foo',
+                        path: '',
+                      },
+                    ],
+                    file: P.join('pages', 'foo.vue'),
+                    meta: { foo: true },
+                    path: '/foo',
+                  },
+                ])
+              })
+            ],
           }
-        }
-        </script>
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
-    },
-  },
-  'typescript: class api with component name': {
-    config: {
-      buildModules: [packageName`@nuxt/typescript-build`],
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
+        `,
+        pages: {
+          foo: {
+            'bar.vue': endent`
+              <template>
+                <div />
+              </template>
 
-        <script lang="ts">
-        import Vue from 'vue'
+              <script>
+              export default {
+                meta: {
+                  fooBar: true,
+                },
+              }
+              </script>
+            `,
+            'bar/index.vue': endent`
+              <template>
+                <div />
+              </template>
 
-        export default class MyComponent extends Vue {
-          meta = {
-            foo: true,
-          }
-        }
-        </script>
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
-    },
-  },
-  'typescript: composition api': {
-    config: {
-      buildModules: [
-        packageName`@nuxtjs/composition-api/module`,
-        packageName`@nuxt/typescript-build`,
-      ],
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
+              <script>
+              export default {
+                meta: {
+                  fooBarIndex: true,
+                },
+              }
+              </script>
+            `,
+            'index.vue': endent`
+              <template>
+                <div />
+              </template>
 
-        <script lang="ts">
-        import { defineComponent } from '${packageName`@nuxtjs/composition-api`}'
-
-        export default defineComponent({
-          meta: {
-            foo: true,
-          }
-        })
-        </script>
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
-    },
-  },
-  'typescript: object': {
-    config: {
-      buildModules: [packageName`@nuxt/typescript-build`],
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
-
-        <script lang="ts">
-        const foo: number = 1
-        export default {
-          foo: true,
-        }
-        </script>
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
-    },
-  },
-  'typescript: options api': {
-    config: {
-      buildModules: [packageName`@nuxt/typescript-build`],
-      modules: [self, '~/modules/module'],
-    },
-    error: 'Nuxt build error',
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
-
-        <script lang="ts">
-        import Vue from 'vue'
-
-        export default Vue.extend({
-          meta: {
-            foo: true,
-          }
-        })
-        </script>
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
-    },
-  },
-  'typescript: plain object': {
-    config: {
-      buildModules: [packageName`@nuxt/typescript-build`],
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes => {
-            expect(routes[0].meta.foo).toEqual(true)
-            expect(routes[0].meta.bar).toEqual(true)
-          })
-        }
-      `,
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
-
-        <script lang="ts">
-        import Vue from 'vue'
-
-        export default {
-          foo: true,
-          meta: {
-            bar: true,
+              <script>
+              export default {
+                meta: {
+                  fooIndex: true,
+                },
+              }
+              </script>
+            `,
           },
-        }
-        </script>
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
-    },
-  },
-  'typescript: property decorator': {
-    config: {
-      buildModules: [packageName`@nuxt/typescript-build`],
-      modules: [self, '~/modules/module'],
-    },
-    files: {
-      'modules/module.js': endent`
-        export default function () {
-          this.extendRoutes(routes =>
-            expect(routes[0].meta.foo).toEqual(true)
-          )
-        }
-      `,
-      'pages/index.vue': endent`
-        <template>
-          <div />
-        </template>
+          'foo.vue': endent`
+            <template>
+              <div />
+            </template>
 
-        <script lang="ts">
-        import { Vue, Component } from '${packageName`vue-property-decorator`}'
+            <script>
+            export default {
+              meta: {
+                foo: true,
+              },
+            }
+            </script>
+          `,
+        },
+      })
+      await execaCommand('nuxt build')
+    },
+    'typescript: composition': async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
 
-        @Component
-        export default class extends Vue {
-          meta = {
-            foo: true,
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta).toEqual({ foo: true })),
+            ],
           }
-        }
-        </script>
-      `,
-      'tsconfig.json': JSON.stringify(tsconfig),
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
+          <script setup lang="ts">
+          const foo: number = 1
+          definePageMeta({
+            foo: true,
+          })
+          </script>
+        `,
+      })
+      await execaCommand('nuxt build')
+    },
+    'typescript: defineComponent': async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta).toEqual({ foo: true })),
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
+          <script lang="ts">
+          const foo: number = 1
+          export default defineComponent({
+            meta: {
+              foo: true,
+            },
+          })
+          </script>
+        `,
+      })
+      await execaCommand('nuxt build')
+    },
+    'typescript: plain object': async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '../src/index.js',
+              (options, nuxt) => nuxt.hook('pages:extend', routes => expect(routes[0].meta).toEqual({ foo: true, bar: true }))
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
+          <script lang="ts">
+          const foo: number = 1
+
+          export default {
+            foo: true,
+            meta: {
+              bar: true,
+            },
+          }
+          </script>
+        `,
+      })
+      await execaCommand('nuxt build')
     },
   },
-} |> mapValues(runTest)
+  [testerPluginTmpDir()],
+)
