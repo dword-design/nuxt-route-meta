@@ -61,7 +61,7 @@
     "@dword-design/tester": "^2.0.19",
     "@dword-design/tester-plugin-tmp-dir": "^2.1.26",
     "depcheck-package-name": "^3.0.1",
-    "execa": "^7.1.1",
+    "execa": "^8.0.0",
     "expect": "^29.5.0",
     "nuxt": "^3.6.1",
     "nuxt-babel-runtime": "^4.0.0",
