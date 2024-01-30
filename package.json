@@ -64,7 +64,7 @@
     "execa": "^7.1.1",
     "expect": "^29.5.0",
     "nuxt": "^3.6.1",
-    "nuxt-babel-runtime": "^4.0.0",
+    "nuxt-babel-runtime": "^5.0.0",
     "output-files": "^2.0.0",
     "typescript": "^5.1.6"
   },
