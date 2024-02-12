@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/dword-design/nuxt-route-meta/compare/v4.0.0...v5.0.0) (2024-02-12)
+
+
+### Bug Fixes
+
+* lock file maintenance ([#170](https://github.com/dword-design/nuxt-route-meta/issues/170)) ([ea8bc78](https://github.com/dword-design/nuxt-route-meta/commit/ea8bc7874e758a2ff9dc373227aea9ba053d990f))
+
+
+### BREAKING CHANGES
+
+* require node.js >= 18
+
 # [4.0.0](https://github.com/dword-design/nuxt-route-meta/compare/v3.0.10...v4.0.0) (2023-07-02)
 
 
