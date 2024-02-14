@@ -47,7 +47,7 @@
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@babel/traverse": "^7.13.13",
-    "@dword-design/functions": "^5.0.22",
+    "@dword-design/functions": "^6.0.0",
     "@vue/compiler-sfc": "^3.3.4",
     "ast-to-literal": "^0.0.5",
     "deepmerge": "^4.3.1",
