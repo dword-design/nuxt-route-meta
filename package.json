@@ -54,7 +54,7 @@
     "depcheck-package-name": "^3.0.1",
     "fs-extra": "^11.1.0",
     "lodash-es": "^4.17.21",
-    "ts-ast-to-literal": "^3.0.10"
+    "ts-ast-to-literal": "^4.0.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-pipeline-operator": "^7.22.5",
