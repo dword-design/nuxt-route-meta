@@ -69,10 +69,10 @@ Nuxt pages have a `meta` property that allows to define meta data. These can be 
 
 ```bash
 # npm
-$ npm install nuxt-route-meta
+$ npx nuxi module add nuxt-route-meta
 
 # Yarn
-$ yarn add nuxt-route-meta
+$ yarn nuxi module add nuxt-route-meta
 ```
 <!-- /INSTALL -->
 
