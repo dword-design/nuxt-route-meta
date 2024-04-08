@@ -1,3 +1,11 @@
+## [5.0.1](https://github.com/dword-design/nuxt-route-meta/compare/v5.0.0...v5.0.1) (2024-04-08)
+
+
+### Bug Fixes
+
+* foo ([0064afd](https://github.com/dword-design/nuxt-route-meta/commit/0064afd64d6b916297c6b78cf0fb6304a675c52a))
+* lock file maintenance ([#174](https://github.com/dword-design/nuxt-route-meta/issues/174)) ([1bfd613](https://github.com/dword-design/nuxt-route-meta/commit/1bfd613cc216ba6aba9a6e5a145209166dbe82ff))
+
 # [5.0.0](https://github.com/dword-design/nuxt-route-meta/compare/v4.0.0...v5.0.0) (2024-02-12)
 
 
