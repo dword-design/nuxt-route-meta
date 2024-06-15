@@ -1,3 +1,10 @@
+## [5.0.2](https://github.com/dword-design/nuxt-route-meta/compare/v5.0.1...v5.0.2) (2024-06-15)
+
+
+### Bug Fixes
+
+* update dependency execa to v9 ([#183](https://github.com/dword-design/nuxt-route-meta/issues/183)) ([e0c9b31](https://github.com/dword-design/nuxt-route-meta/commit/e0c9b31acbc58bc11dc46c997f0ac767df3314d4))
+
 ## [5.0.1](https://github.com/dword-design/nuxt-route-meta/compare/v5.0.0...v5.0.1) (2024-04-08)
 
 
