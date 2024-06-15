@@ -1,3 +1,4 @@
+import { isNuxt3 as isNuxt3Try } from '@nuxt/kit'
 import { parse as parseVue } from '@vue/compiler-sfc'
 import deepmerge from 'deepmerge'
 import fs from 'fs-extra'
@@ -6,7 +7,15 @@ import P from 'path'
 import parseBabel from './parse-babel.js'
 import parseTypescript from './parse-typescript.js'
 
-export default (options, nuxt) => {
+export default function (options, nuxt) {
+  nuxt = nuxt || this
+  let isNuxt3 = true
+  try {
+    isNuxt3 = isNuxt3Try()
+  } catch {
+    isNuxt3 = false
+  }
+
   const extractMeta = async filename => {
     const fileContent = fs.readFileSync(filename, 'utf8')
 
@@ -45,5 +54,7 @@ export default (options, nuxt) => {
         }
       }),
     )
-  nuxt.hook('pages:extend', parseRoutes)
+
+  const hookObject = isNuxt3 ? nuxt : nuxt.nuxt
+  hookObject.hook('pages:extend', parseRoutes)
 }

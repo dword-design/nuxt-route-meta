@@ -57,13 +57,6 @@ Nuxt pages have a `meta` property that allows to define meta data. These can be 
 
 ℹ️ **Note that this module can only extract static data from the pages at build time. It will not work with dynamic data depending on `this`. In case you have an idea how to improve that, feel free to open up an issue or pull request.**
 
-## Compatibility
-
-| nuxt-route-meta | Nuxt |
-|-----------------|------|
-| <= 5            | 2    |
-| >= 6            | 3    |
-
 <!-- INSTALL/ -->
 ## Install
 
