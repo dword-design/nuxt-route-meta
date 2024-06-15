@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/dword-design/nuxt-route-meta/compare/v5.0.2...v5.0.3) (2024-06-15)
+
+
+### Bug Fixes
+
+* nuxt 2 compatibility ([#192](https://github.com/dword-design/nuxt-route-meta/issues/192)) ([297f541](https://github.com/dword-design/nuxt-route-meta/commit/297f541eb9bbde31334a75b30b726e3991683d0d))
+
 ## [5.0.2](https://github.com/dword-design/nuxt-route-meta/compare/v5.0.1...v5.0.2) (2024-06-15)
 
 
