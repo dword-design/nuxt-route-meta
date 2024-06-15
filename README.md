@@ -53,16 +53,9 @@
 Adds Nuxt page data to route meta at build time. Also supports TypeScript.
 <!-- /DESCRIPTION -->
 
-Nuxt pages have a `meta` property that allows to define meta data. These can be accessed in middlewares via `route.meta` at runtime. What does not work however is to access the meta data at build time in the routes object itself. This is needed when postprocessing routes via [extendRoutes](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router) or the [@nuxtjs/sitemap](https://www.npmjs.com/package/@nuxtjs/sitemap) module. This module fills this gap by parsing the page files, extracting the meta data, and writing them to the `meta` field of each route corresponding to the page.
+Nuxt pages have a `meta` property that allows to define meta data. These can be accessed in middlewares via `route.meta` at runtime. What does not work however is to access the meta data at build time in the routes object itself. This is needed when postprocessing routes via [extendRoutes](https://nuxtjs.org/docs/2.x/configuration-glossary/configuration-router) (Nuxt 2), [pages:extend](https://nuxt.com/docs/guide/recipes/custom-routing#pages-hook) (Nuxt 3), [extendPages](https://nuxt.com/docs/api/kit/pages#extendpages) or the [@nuxtjs/sitemap](https://www.npmjs.com/package/@nuxtjs/sitemap) module. This module fills this gap by parsing the page files, extracting the meta data, and writing them to the `meta` field of each route corresponding to the page.
 
 ℹ️ **Note that this module can only extract static data from the pages at build time. It will not work with dynamic data depending on `this`. In case you have an idea how to improve that, feel free to open up an issue or pull request.**
-
-## Compatibility
-
-| nuxt-route-meta | Nuxt |
-|-----------------|------|
-| <= 5            | 2    |
-| >= 6            | 3    |
 
 <!-- INSTALL/ -->
 ## Install

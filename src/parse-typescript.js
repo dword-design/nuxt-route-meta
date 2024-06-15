@@ -1,4 +1,3 @@
-import { property } from '@dword-design/functions'
 import deepmerge from 'deepmerge'
 import packageName from 'depcheck-package-name'
 import { keys, omit } from 'lodash-es'
@@ -6,10 +5,9 @@ import { keys, omit } from 'lodash-es'
 import predefinedProperties from './predefined-properties.js'
 
 export default async script => {
-  const ts = import('typescript') |> await |> property('default')
+  const ts = (await import('typescript')).default
 
-  const tsAstToLiteral =
-    import(packageName`ts-ast-to-literal`) |> await |> property('default')
+  const tsAstToLiteral = (await import(packageName`ts-ast-to-literal`)).default
 
   const rootNode = ts.createSourceFile(
     'x.ts',

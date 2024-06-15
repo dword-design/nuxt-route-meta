@@ -2,8 +2,10 @@ import { endent } from '@dword-design/functions'
 import tester from '@dword-design/tester'
 import testerPluginTmpDir from '@dword-design/tester-plugin-tmp-dir'
 import packageName from 'depcheck-package-name'
-import { execaCommand } from 'execa'
+import { execa, execaCommand } from 'execa'
+import fs from 'fs-extra'
 import outputFiles from 'output-files'
+import P from 'path'
 
 export default tester(
   {
@@ -226,6 +228,38 @@ export default tester(
         },
       })
       await execaCommand('nuxt build')
+    },
+    nuxt2: async () => {
+      await outputFiles({
+        'nuxt.config.js': endent`
+          import expect from '${packageName`expect`}'
+
+          export default {
+            modules: [
+              '~/../src/index.js',
+              function () {
+                this.nuxt.hook('pages.extend', routes => expect(routes[0].meta).toEqual({ foo: false }));
+              },
+            ],
+          }
+        `,
+        'pages/index.vue': endent`
+          <template>
+            <div />
+          </template>
+
+          <script>
+          export default {
+            foo: true,
+          }
+          </script>
+        `,
+      })
+      await fs.symlink(
+        P.join('..', 'node_modules', '.cache', 'nuxt2', 'node_modules'),
+        'node_modules',
+      )
+      await execa(P.join('node_modules', '.bin', 'nuxt'), ['build'])
     },
     'predefined properties': async () => {
       await outputFiles({
@@ -475,5 +509,20 @@ export default tester(
       await execaCommand('nuxt build')
     },
   },
-  [testerPluginTmpDir()],
+  [
+    testerPluginTmpDir(),
+    {
+      before: async () => {
+        console.log('Installing Nuxt 2 …')
+        await fs.outputFile(
+          P.join('node_modules', '.cache', 'nuxt2', 'package.json'),
+          JSON.stringify({}),
+        )
+        await execaCommand('yarn add nuxt@^2', {
+          cwd: P.join('node_modules', '.cache', 'nuxt2'),
+          stdio: 'inherit',
+        })
+      },
+    },
+  ],
 )
