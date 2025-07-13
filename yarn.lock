@@ -11988,6 +11988,13 @@ output-files@^2.0.0:
     "@dword-design/functions" "^4.0.0"
     fs-extra "^11.1.0"
 
+output-files@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/output-files/-/output-files-3.0.0.tgz#0c26b834646befed2bb40e460ae9c658ad5cd1c1"
+  integrity sha512-mFwRkTDiw6evbQW1G6To+Yp7tN2WOVh8ne7AyzTRWtqPU+Sza3ZhtXEO3vpLnaYPYEIUSrlILeZVp0rOmcA5Kw==
+  dependencies:
+    fs-extra "^11.1.0"
+
 p-each-series@^2.1.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/p-each-series/-/p-each-series-2.2.0.tgz#105ab0357ce72b202a8a8b94933672657b5e2a9a"
