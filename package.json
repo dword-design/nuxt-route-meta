@@ -51,7 +51,7 @@
     "@vue/compiler-sfc": "^3.3.4",
     "ast-to-literal": "^0.0.5",
     "deepmerge": "^4.3.1",
-    "depcheck-package-name": "^3.0.1",
+    "depcheck-package-name": "^4.0.0",
     "fs-extra": "^11.1.0",
     "lodash-es": "^4.17.21",
     "ts-ast-to-literal": "^4.0.0"
