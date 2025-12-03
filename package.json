@@ -47,7 +47,7 @@
   "dependencies": {
     "@babel/core": "^7.11.1",
     "@babel/traverse": "^7.13.13",
-    "@nuxt/kit": "^3.12.1",
+    "@nuxt/kit": "^4.0.0",
     "@vue/compiler-sfc": "^3.3.4",
     "ast-to-literal": "^0.0.5",
     "deepmerge": "^4.3.1",
