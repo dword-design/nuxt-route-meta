@@ -65,7 +65,7 @@
     "@dword-design/tester-plugin-tmp-dir": "^2.1.26",
     "execa": "^9.0.0",
     "expect": "^29.5.0",
-    "nuxt": "^3.6.1",
+    "nuxt": "^4.0.0",
     "nuxt-babel-runtime": "^5.0.0",
     "output-files": "^2.0.0",
     "typescript": "^5.3.3"
